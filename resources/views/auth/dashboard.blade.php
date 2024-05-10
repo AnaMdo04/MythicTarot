@@ -13,7 +13,7 @@
                     </div>
                 @else
                     <div class="alert alert-success">
-                        You are logged in!
+                       ¡Has iniciado sesión!
                     </div>       
                 @endif                
             </div>
