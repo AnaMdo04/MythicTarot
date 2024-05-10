@@ -3,11 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row align-items-center">
-        <!-- Imagen a la izquierda, como en la página de inicio de sesión -->
         <div class="col-md-6 login-image">
             <img src="{{ asset('css/register.jpeg') }}" alt="Register Image" class="img-fluid">
         </div>
-        <!-- Formulario a la derecha -->
         <div class="col-md-6">
             <div class="login-form">
                 <h2>Registrarse</h2>
