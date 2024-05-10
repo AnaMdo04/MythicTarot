@@ -1,0 +1,90 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    background-color: #ccc;
+    text-align: center;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+
+.banner {
+    background-color: #ddd;
+    height: 200px;
+    width: 100%;
+}
+
+.content .block {
+    background-color: #bbb;
+    margin: 10px;
+    height: 100px;
+}
+
+.content .large {
+    height: 200px;
+}
+
+.opinions .opinion {
+    background-color: #aaa;
+    width: calc(50% - 20px);
+    margin: 10px;
+    height: 100px;
+    display: inline-block;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ccc;
+}
+
+/* Estilos base para el contenedor del login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Estilización del formulario de login */
+.login-form {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.login-form .btn-link {
+    color: #254d59;
+    text-decoration: none;
+    padding-left: 0;
+}
+
+/* Estilización de la imagen lateral */
+.login-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}

@@ -1,0 +1,113 @@
+/* Estilos base para el cuerpo y la fuente */
+body,
+html {
+    font-family: "League Spartan";
+    background-color: #ecd1c5;
+    color: #333;
+}
+
+/* Personalización del navbar */
+.navbar {
+    background-color: #feecde !important;
+    box-shadow: 0 2px 5px #8e7c74;
+}
+
+.nav-link {
+    padding: 8px 15px;
+    background-color: #377081;
+    color: #ffffff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: #254d59;
+    color: #fff;
+}
+
+/* Estilos para la imagen del login */
+.login-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Estilización del formulario de login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-form {
+    background-color: #feecde;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px #8e7c74;
+    margin: 20px; /* Asegura que el formulario no esté pegado a los bordes */
+    text-align: center;
+}
+
+.form-control {
+    background-color: #377081; /* Fondo de los inputs */
+    color: #333; /* Color de texto de los inputs */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #377081;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px #8e7c74;
+    --bs-btn-hover-bg: #254d59;
+    --bs-btn-active-bg: #254d59;
+    display: block; /* Hace que el botón sea un bloque para centrarlo */
+    width: 50%; /* Ajusta el ancho del botón a tu preferencia */
+    margin: 0 auto; /* Centra el botón horizontalmente */
+}
+.navbar-nav .nav-item {
+    margin-right: 20px; /* Ajusta este valor según el espacio deseado */
+}
+
+.navbar-nav .nav-item:last-child {
+    margin-right: 0; /* Asegura que el último elemento no tenga margen extra a la derecha */
+}
+.btn-link {
+    background-color: transparent;
+    color: #377081;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-link:hover {
+    background-color: #254d59 !important;
+    box-shadow: 0 2px 4px #8e7c74;
+}
+
+/* Estilos adicionales */
+.container {
+    padding-top: 50px;
+}
+
+/* Cambia el color de fondo y de texto cuando el input está activo */
+.form-control:active {
+    background-color: #c8e6c9; /* Color de fondo al activar */
+    color: #205723; /* Color de texto al activar */
+}
+
+/* Cambia el color de fondo y de texto cuando el input está enfocado */
+.form-control:focus {
+    background-color: #377081; /* Color de fondo al enfocar */
+    color: #fff; /* Color de texto al enfocar */
+    border-color: #66afe9; /* Cambia el color del borde si es necesario */
+    outline: none; /* Elimina el contorno que algunos navegadores añaden por defecto */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Opcional: añade sombra interior si lo deseas */
+}
