@@ -121,3 +121,7 @@ input::placeholder {
     outline: none;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); 
 }
+
+.card {
+ background-color: #254d59;
+}
