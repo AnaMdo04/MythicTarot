@@ -1,0 +1,45 @@
+
+
+/* Estilos para los bloques de contenido */
+.content-block {
+    background-color: #feecde;
+    border-radius: 10px;
+}
+
+.content-block.large {
+    height: 300px;
+    box-shadow: 6px 6px 16px 1px rgba(0, 0, 0, 0.3);
+}
+
+.content-block.medium {
+    height: 150px;
+    box-shadow: 6px 6px 16px 1px rgba(0, 0, 0, 0.3);
+}
+
+.content-block.small {
+    height: 100px;
+    margin-bottom: 10px;
+    box-shadow: 6px 6px 16px 1px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: none !important;
+    }
+}
+
+.container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    
+}
+
+
+.picture-small {
+    margin-bottom: 10px;
+    box-shadow: 6px 6px 16px 1px rgba(0, 0, 0, 0.3);
+    height: 250px;
+    width: 590px;
+    margin-left: 50px;
+    background-color: #377081;
+}
