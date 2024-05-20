@@ -26,6 +26,9 @@
                         <a class="nav-link" href="{{ route('store') }}">Tienda</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('tarot') }}">Tarot</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('aboutUs') }}">Sobre Nosotros</a>
                     </li>
                     <li class="nav-item">

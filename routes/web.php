@@ -21,8 +21,8 @@ Route::get('/', function () {
 Route::controller(LoginRegisterController::class)->group(function () {
     Route::get('/register', 'register')->name('register');
     Route::post('/store', 'store')->name('store');
-    Route::get('/home', 'home')->name('home');
-    Route::get('/about', 'about')->name('about');
+    Route::post('/tarot', 'tarot')->name('tarot');
+    Route::get('/aboutUs', 'aboutUs')->name('aboutUs');
     Route::get('/faqs', 'faqs')->name('faqs');
     Route::get('/login', 'login')->name('login');
     Route::post('/authenticate', 'authenticate')->name('authenticate');
