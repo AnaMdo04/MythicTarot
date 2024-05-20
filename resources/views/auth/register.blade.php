@@ -9,7 +9,7 @@
         <div class="col-md-6">
             <div class="login-form">
                 <h2>Registrarse</h2>
-                <form action="{{ route('store') }}" method="post">
+                <form action="{{ route('store') }}" method="post"> <!-- Cambio aquí la ruta de acción a 'store' -->
                     @csrf
                     <div class="form-group mb-3">
                         <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Nombre" required value="{{ old('name') }}">

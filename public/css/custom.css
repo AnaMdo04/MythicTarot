@@ -10,18 +10,18 @@ body, html {
 }
 
 .navbar-nav .nav-item .nav-link {
-    padding: 10px 20px; /* Ajusta el padding para cambiar el tamaño */
+    padding: 10px 20px;
     background-color: #377081;
     color: #ffffff;
     border-radius: 4px;
     transition: background-color 0.3s ease;
-    white-space: nowrap; /* Asegura que el texto no se envuelva */
+    white-space: nowrap;
     text-align: center;
-    margin: 0 5px; /* Espacio entre los botones */
+    margin: 0 5px;
 }
 
 .nav-link:hover, .nav-link.active {
-    background-color: #254d59;
+    background-color: #325059 !important;
     color: #fff;
 }
 
@@ -61,8 +61,8 @@ input::placeholder {
 }
 
 .form-control:active {
-    background-color: #c8e6c9; /* Color de fondo al activar */
-    color: #205723; /* Color de texto al activar */
+    background-color: #c8e6c9;
+    color: #205723;
 }
 
 .form-control:focus {
@@ -70,7 +70,7 @@ input::placeholder {
     color: #fff;
     border-color: #254d59;
     outline: none;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); 
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
@@ -81,9 +81,9 @@ input::placeholder {
     box-shadow: 0 2px 4px #8e7c74;
     --bs-btn-hover-bg: #254d59;
     --bs-btn-active-bg: #254d59;
-    display: block; /* Centra el botón */
-    width: 50%; /* Ajusta el ancho del botón a tu preferencia */
-    margin: 10px auto; /* Centra el botón horizontalmente */
+    display: block;
+    width: 50%;
+    margin: 10px auto;
 }
 
 .btn-link {
@@ -107,15 +107,15 @@ input::placeholder {
 
 .navbar-nav {
     display: flex;
-    gap: 20px; /* Espacio entre los elementos de navegación */
+    gap: 20px;
 }
 
 .navbar-nav .nav-item {
-    margin-right: 0; /* Elimina el margen derecho */
+    margin-right: 0;
 }
 
 .navbar-collapse {
-    justify-content: center; /* Centra los elementos de la barra de navegación */
+    justify-content: center;
     flex-grow: 0.5;
 }
 
@@ -143,7 +143,7 @@ footer.footer-area {
 
 .footer-link:hover {
     color: #254d59;
-    text-decoration: underline; /* Opcional, para resaltar el enlace al pasar el ratón */
+    text-decoration: underline;
 }
 
 .contact-logos a {
@@ -154,5 +154,27 @@ footer.footer-area {
 }
 
 .contact-logos a:hover {
+    color: #254d59;
+}
+
+.login_user {
+    margin-right: 55px !important;
+}
+
+.dropdown-menu {
+    padding: 10px;
+    background-color: #feecde;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 200px; /* Ajusta el ancho del menú desplegable */
+}
+
+.dropdown-item {
+    color: #377081;
+    transition: background-color 0.2s;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    background-color: #feecde;
     color: #254d59;
 }

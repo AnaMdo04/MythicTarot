@@ -15,8 +15,9 @@ class LoginRegisterController extends Controller
      */
     public function __construct()
     {
+        // Exclude some routes from guest middleware
         $this->middleware('guest')->except([
-            'logout', 'dashboard'
+            'logout', 'dashboard', 'tienda', 'aboutUs', 'tarot', 'faqs', 'terms', 'cookies', 'contact'
         ]);
     }
 
@@ -31,7 +32,7 @@ class LoginRegisterController extends Controller
     }
 
     /**
-     * Store a new user.
+     * Store a new user in the database.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -50,11 +51,12 @@ class LoginRegisterController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        $credentials = $request->only('email', 'password');
-        Auth::attempt($credentials);
-        $request->session()->regenerate();
-        return redirect()->route('dashboard')
-        ->withSuccess('You have successfully registered & logged in!');
+        if (Auth::attempt($request->only('email', 'password'))) {
+            $request->session()->regenerate();
+            return redirect('/')->with('success', 'You have successfully registered and logged in!');
+        }
+
+        return redirect('register')->withErrors('Unable to log in with provided credentials.');
     }
 
     /**
@@ -68,7 +70,7 @@ class LoginRegisterController extends Controller
     }
 
     /**
-     * Authenticate the user.
+     * Handle the user login.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -80,38 +82,32 @@ class LoginRegisterController extends Controller
             'password' => 'required'
         ]);
 
-        if(Auth::attempt($credentials))
-        {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('dashboard')
-                ->withSuccess('You have successfully logged in!');
+            return redirect('/')->with('success', 'You have successfully logged in!');
         }
 
         return back()->withErrors([
-            'email' => 'Your provided credentials do not match in our records.',
-        ])->onlyInput('email');
+            'email' => 'The provided credentials do not match our records.'
+        ]);
     } 
 
     /**
-     * Display a dashboard to authenticated users.
+     * Display the user dashboard after login.
      *
      * @return \Illuminate\Http\Response
      */
     public function dashboard()
     {
-        if(Auth::check())
-        {
+        if (Auth::check()) {
             return view('auth.dashboard');
         }
         
-        return redirect()->route('login')
-            ->withErrors([
-            'email' => 'Please login to access the dashboard.',
-        ])->onlyInput('email');
+        return redirect('login')->withErrors('Please log in to access the dashboard.');
     } 
 
     /**
-     * Log out the user from application.
+     * Log out the user.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -121,32 +117,40 @@ class LoginRegisterController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('login')
-            ->withSuccess('You have logged out successfully.');
+        return redirect('login')->with('success', 'You have logged out successfully.');
     }
 
-    // Additional pages
+    // Additional pages methods ...
     public function tienda() {
-        return view('tienda');  // Ensure the view 'tienda.blade.php' exists
+        return view('tienda');
     }
 
     public function aboutUs() {
-        return view('aboutUs');  // Ensure the view 'aboutUs.blade.php' exists
+        return view('aboutUs');
     }
 
     public function faqs() {
-        return view('faqs');  // Ensure the view 'faqs.blade.php' exists
+        return view('faqs');
     }
 
     public function terms() {
-        return view('terms');  // Ensure the view 'terms.blade.php' exists
+        return view('terms');
     }
 
     public function cookies() {
-        return view('cookies');  // Ensure the view 'cookies.blade.php' exists
+        return view('cookies');
     }
 
     public function contact() {
-        return view('contact');  // Ensure the view 'contact.blade.php' exists
+        return view('contact');
+    }
+
+    public function tarot()
+    {
+        if (Auth::check()) {
+            return view('tarot');
+        } else {
+            return redirect('login')->with('error', 'You need to log in to access this page.');
+        }
     }
 }

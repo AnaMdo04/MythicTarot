@@ -21,16 +21,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ URL('/') }}">Inicio</a>
+                        <a class="nav-link {{ Route::currentRouteName() == 'welcome' ? 'active' : '' }}" href="{{ route('welcome') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('store') }}">Tienda</a>
+                        <a class="nav-link {{ Route::currentRouteName() == 'tienda' ? 'active' : '' }}" href="{{ route('tienda') }}">Tienda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('aboutUs') }}">Sobre Nosotros</a>
+                        <a class="nav-link {{ Route::currentRouteName() == 'tarot' ? 'active' : '' }}" href="{{ route('tarot') }}">Tarot</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('faqs') }}">FAQs</a>
+                        <a class="nav-link {{ Route::currentRouteName() == 'aboutUs' ? 'active' : '' }}" href="{{ route('aboutUs') }}">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::currentRouteName() == 'faqs' ? 'active' : '' }}" href="{{ route('faqs') }}">FAQs</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
@@ -43,10 +46,13 @@
                     </li>
                     @else
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle login_user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="{{ route('dashboard') }}">
+                                    Perfil
+                                </a>
                             <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     Cerrar Sesión
                                 </a>
@@ -69,18 +75,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
     <footer class="footer-area">
-    <div class="container text-center">
-        <a href="{{ route('terms') }}" class="footer-link">Términos y Condiciones</a>
-        <a href="{{ route('cookies') }}" class="footer-link">Política de Cookies</a>
-        <a href="{{ route('contact') }}" class="footer-link">Contacto</a>
-        <div class="contact-logos">
-            <a href="https://www.whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <div class="container text-center">
+            <a href="{{ route('terms') }}" class="footer-link">Términos y Condiciones</a>
+            <a href="{{ route('cookies') }}" class="footer-link">Política de Cookies</a>
+            <a href="{{ route('contact') }}" class="footer-link">Contacto</a>
+            <div class="contact-logos">
+                <a href="https://www.whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
-    </div>
-</footer>
-
-
+    </footer>
 </body>
 </html>
