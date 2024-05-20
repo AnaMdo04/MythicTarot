@@ -20,8 +20,11 @@ Route::get('/', function () {
 
 Route::controller(LoginRegisterController::class)->group(function () {
     Route::get('/register', 'register')->name('register');
-    Route::post('/store', 'store')->name('store');
-    Route::post('/tarot', 'tarot')->name('tarot');
+    Route::get('/store', 'store')->name('store');
+    Route::get('/tarot', 'tarot')->name('tarot');
+    Route::get('/terms', 'terms')->name('terms');    
+    Route::get('/contact', 'contact')->name('contact');
+    Route::get('/cookies', 'cookies')->name('cookies');
     Route::get('/aboutUs', 'aboutUs')->name('aboutUs');
     Route::get('/faqs', 'faqs')->name('faqs');
     Route::get('/login', 'login')->name('login');
