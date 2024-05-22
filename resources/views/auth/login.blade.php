@@ -25,7 +25,7 @@
                     </div>
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
-                        <a href="{{ route('register') }}" class="btn btn-primary btn-block">Registrarse</a>
+                        <a href="{{ route('register') }}" class="btn btn-primary btn-block">Registrar</a>
                     </div>
                 </form>
             </div>

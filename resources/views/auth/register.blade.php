@@ -33,7 +33,7 @@
                         <input type="password" class="form-control" name="password_confirmation" placeholder="Confirmar Contraseña" required>
                     </div>
                     <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+                        <button type="submit" class="btn btn-primary btn-block">Registrar</button>
                         <a href="{{ route('login') }}" class="btn btn-primary btn-block">Iniciar Sesión</a>
                     </div>
                 </form>

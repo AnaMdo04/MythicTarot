@@ -1,6 +1,8 @@
 @extends('auth.layouts')
 
 @section('content')
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+
 <div class="container">
     <div class="row align-items-center">
         <div class="col-md-6 login-image">
