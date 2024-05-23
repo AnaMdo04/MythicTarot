@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Lectura extends Model
 {
     protected $table = 'lecturas';
-    protected $fillable = ['fecha_lectura', 'pregunta', 'respuesta', 'usuario_id'];
+    protected $fillable = ['fecha_lectura', 'pregunta', 'respuesta', 'user_id'];
 
-    public function usuario()
+    public function user()
     {
-        return $this->belongsTo(Usuario::class);
+        return $this->belongsTo(User::class);
     }
 
     public function cartas()

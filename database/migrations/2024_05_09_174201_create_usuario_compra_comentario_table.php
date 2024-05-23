@@ -9,10 +9,10 @@ class CreateUsuarioCompraComentarioTable extends Migration
     public function up()
     {
         Schema::create('usuario_compra_comentario', function (Blueprint $table) {
-            $table->foreignId('usuario_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->foreignId('compra_id')->constrained('compras');
             $table->foreignId('comentario_id')->constrained('comentarios');
-            $table->primary(['usuario_id', 'compra_id', 'comentario_id']);
+            $table->primary(['user_id', 'compra_id', 'comentario_id']);
         });
     }
 

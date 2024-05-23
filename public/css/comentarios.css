@@ -1,0 +1,86 @@
+/* General Body Styles */
+body, html {
+    font-family: 'League Spartan', sans-serif;
+    background-color: #ecd1c5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.container {
+    padding: 20px;
+}
+
+/* Header */
+h1 {
+    color: #377081;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Filter Form */
+.filter-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.filter-container input[type="text"] {
+    padding: 8px;
+    width: 250px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+.filter-container button {
+    padding: 10px 20px;
+    background-color: #377081;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filter-container button:hover {
+    background-color: #254d59;
+}
+
+/* Comments Styling */
+.comment {
+    background-color: #feecde;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.comment p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+/* Pagination Links Style */
+ul.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+ul.pagination li {
+    margin: 0 5px;
+}
+
+ul.pagination li a {
+    color: #377081;
+    padding: 5px 10px;
+    text-decoration: none;
+    border: 1px solid #377081;
+    border-radius: 5px;
+}
+
+ul.pagination li.active a, ul.pagination li a:hover {
+    background-color: #377081;
+    color: white;
+}

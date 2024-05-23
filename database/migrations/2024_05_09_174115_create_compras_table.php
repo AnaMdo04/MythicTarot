@@ -12,7 +12,7 @@ class CreateComprasTable extends Migration
             $table->id();
             $table->dateTime('fecha_compra');
             $table->decimal('total', 10, 2);
-            $table->foreignId('usuario_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }

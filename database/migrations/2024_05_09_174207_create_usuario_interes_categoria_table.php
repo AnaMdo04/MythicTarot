@@ -9,10 +9,10 @@ class CreateUsuarioInteresCategoriaTable extends Migration
     public function up()
     {
         Schema::create('usuario_interes_categoria', function (Blueprint $table) {
-            $table->foreignId('usuario_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->foreignId('categoria_id')->constrained('categorias');
             $table->string('nivel_interes', 50);
-            $table->primary(['usuario_id', 'categoria_id']);
+            $table->primary(['user_id', 'categoria_id']);
         });
     }
 

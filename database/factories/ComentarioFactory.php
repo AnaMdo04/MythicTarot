@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Comentario;
 use App\Models\Lectura;
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ComentarioFactory extends Factory
@@ -17,7 +17,7 @@ class ComentarioFactory extends Factory
             'texto' => $this->faker->paragraph,
             'fecha_comentario' => $this->faker->dateTimeThisYear(),
             'lectura_id' => Lectura::factory(),
-            'usuario_id' => Usuario::factory()
+            'user_id' => User::factory()
         ];
     }
 }

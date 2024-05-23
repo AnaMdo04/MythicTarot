@@ -9,13 +9,13 @@ class UsuarioAmigo extends Model
     protected $table = 'usuario_amigos';
     public $timestamps = false;
 
-    public function usuario1()
+    public function user1()
     {
-        return $this->belongsTo(Usuario::class, 'usuario_id1');
+        return $this->belongsTo(User::class, 'user_id1');
     }
 
-    public function usuario2()
+    public function user2()
     {
-        return $this->belongsTo(Usuario::class, 'usuario_id2');
+        return $this->belongsTo(User::class, 'user_id2');
     }
 }

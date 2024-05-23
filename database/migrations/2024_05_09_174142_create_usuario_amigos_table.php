@@ -9,9 +9,9 @@ class CreateUsuarioAmigosTable extends Migration
     public function up()
     {
         Schema::create('usuario_amigos', function (Blueprint $table) {
-            $table->foreignId('usuario_id1')->constrained('users');
-            $table->foreignId('usuario_id2')->constrained('users');
-            $table->primary(['usuario_id1', 'usuario_id2']);
+            $table->foreignId('user_id1')->constrained('users');
+            $table->foreignId('user_id2')->constrained('users');
+            $table->primary(['user_id1', 'user_id2']);
         });
     }
 

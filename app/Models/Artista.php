@@ -9,9 +9,9 @@ class Artista extends Model
     protected $table = 'artistas';
     protected $fillable = ['nombre_artista', 'biografia'];
 
-    public function usuario()
+    public function user()
     {
-        return $this->belongsTo(Usuario::class);
+        return $this->belongsTo(User::class);
     }
 
     public function disenios()

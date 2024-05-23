@@ -10,9 +10,9 @@ class UsuarioCompraComentario extends Model
     public $timestamps = false;
     public $incrementing = false;
 
-    public function usuario()
+    public function user()
     {
-        return $this->belongsTo(Usuario::class);
+        return $this->belongsTo(User::class);
     }
 
     public function compra()

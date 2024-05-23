@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Lectura;
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class LecturaFactory extends Factory
@@ -16,7 +16,7 @@ class LecturaFactory extends Factory
             'fecha_lectura' => $this->faker->dateTimeThisYear(),
             'pregunta' => $this->faker->sentence,
             'respuesta' => $this->faker->paragraph,
-            'usuario_id' => Usuario::factory()
+            'user_id' => User::factory()
         ];
     }
 }

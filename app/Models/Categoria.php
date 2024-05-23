@@ -14,8 +14,8 @@ class Categoria extends Model
         return $this->belongsToMany(Disenio::class, 'categoria_has_disenio');
     }
 
-    public function usuarios()
+    public function users()
     {
-        return $this->belongsToMany(Usuario::class, 'usuario_interes_categoria')->withPivot('nivel_interes');
+        return $this->belongsToMany(User::class, 'usuario_interes_categoria')->withPivot('nivel_interes');
     }
 }

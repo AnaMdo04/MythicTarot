@@ -13,7 +13,7 @@ class CreateComentariosTable extends Migration
             $table->text('texto');
             $table->dateTime('fecha_comentario');
             $table->foreignId('lectura_id')->constrained('lecturas');
-            $table->foreignId('usuario_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }

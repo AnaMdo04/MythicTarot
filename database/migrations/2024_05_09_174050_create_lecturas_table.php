@@ -13,7 +13,7 @@ class CreateLecturasTable extends Migration
             $table->dateTime('fecha_lectura');
             $table->text('pregunta')->nullable();
             $table->text('respuesta')->nullable();
-            $table->foreignId('usuario_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }
