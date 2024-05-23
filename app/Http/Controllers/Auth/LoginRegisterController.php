@@ -104,9 +104,22 @@ public function allComments(Request $request)
         return view('aboutUs');
     }
 
-    public function faqs() {
-        return view('faqs');
-    }
+    public function faqs()
+{
+    $faqs = [
+        ['question' => 'Pregunta 1', 'answer' => 'Respuesta'],
+        ['question' => 'Pregunta 2', 'answer' => 'Respuesta'],
+        ['question' => 'Pregunta 3', 'answer' => 'Respuesta'],
+        ['question' => 'Pregunta 4', 'answer' => 'Respuesta'],
+        ['question' => 'Pregunta 5', 'answer' => 'Respuesta'],
+        ['question' => 'Pregunta 6', 'answer' => 'Respuesta'],
+        ['question' => 'Pregunta 7', 'answer' => 'Respuesta'],
+        ['question' => 'Pregunta 8', 'answer' => 'Respuesta'],
+    ];
+
+    return view('faqs', compact('faqs'));
+}
+
 
     public function terms() {
         return view('terms');
