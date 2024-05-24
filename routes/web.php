@@ -20,5 +20,6 @@ Route::controller(LoginRegisterController::class)->group(function () {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
     Route::post('/logout', 'logout')->name('logout');
     Route::get('/comentarios', [LoginRegisterController::class, 'allComments'])->name('comentarios');
+    Route::get('/todos-los-comentarios', 'comentarios')->name('todos-los-comentarios');
 
 });

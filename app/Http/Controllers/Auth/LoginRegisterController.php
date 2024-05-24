@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use App\Models\Comentario; // Make sure you have this model
 use Illuminate\Http\Request;
+use App\Models\Carta;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -24,19 +25,31 @@ class LoginRegisterController extends Controller
         return view('welcome', compact('smallBlocks'));
     }
 
-public function allComments(Request $request)
-{
-    $query = Comentario::with(['user', 'lectura']);
+    
+    public function allComments(Request $request)
+    {
+        $comments = Comentario::with(['user', 'lectura'])->paginate(10);
+        $cartas = Carta::all(); // Asegúrate de que estás importando el modelo Carta en la parte superior del archivo.
+    
+        return view('comentarios', compact('comments', 'cartas'));
+    }
+    
 
-    if ($request->has('filter') && $filter = $request->get('filter')) {
-        $query->whereHas('lectura', function ($q) use ($filter) {
-            $q->where('cards', 'like', '%' . $filter . '%');
-        });
+    public function comentarios(Request $request)
+    {
+        // Implementación específica, por ejemplo, aplicar filtros basados en parámetros de búsqueda
+        $query = Comentario::with(['user', 'lectura']);
+        
+        if ($request->has('filter')) {
+            $query->whereHas('lectura', function ($q) use ($request) {
+                $q->where('cards', 'like', '%' . $request->filter . '%');
+            });
+        }
+
+        $comments = $query->paginate(10);
+        return view('comentarios.filtered', compact('comments'));
     }
 
-    $comments = $query->paginate(10);
-    return view('comentarios', compact('comments'));
-}
 
     
     public function register()

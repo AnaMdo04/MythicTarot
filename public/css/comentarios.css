@@ -3,50 +3,43 @@ body, html {
     font-family: 'League Spartan', sans-serif;
     background-color: #ecd1c5;
     color: #333;
-    margin: 0;
-    padding: 0;
 }
 
-/* Container */
-.container {
+/* Container adjustments */
+.container-fluid {
     padding: 20px;
 }
 
-/* Header */
-h1 {
-    color: #377081;
-    text-align: center;
-    margin-bottom: 20px;
+/* Sidebar styles */
+.filter-sidebar {
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
 }
 
-/* Filter Form */
-.filter-container {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.filter-container input[type="text"] {
-    padding: 8px;
-    width: 250px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+/* Card filter image styles */
+.filter-card-image {
+    height: 30px;
+    width: auto;
     margin-right: 10px;
 }
 
+.form-check-label {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+/* Input and button styles */
+.form-check-input {
+    margin-right: 5px;
+}
+
 .filter-container button {
-    padding: 10px 20px;
-    background-color: #377081;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
 }
 
-.filter-container button:hover {
-    background-color: #254d59;
-}
-
-/* Comments Styling */
+/* Comment box styling */
 .comment {
     background-color: #feecde;
     padding: 15px;
@@ -60,16 +53,12 @@ h1 {
     line-height: 1.5;
 }
 
-/* Pagination Links Style */
+/* Pagination links styling */
 ul.pagination {
     display: flex;
     justify-content: center;
     list-style: none;
     padding: 0;
-}
-
-ul.pagination li {
-    margin: 0 5px;
 }
 
 ul.pagination li a {

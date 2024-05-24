@@ -19,7 +19,7 @@
                 </div>
                 <div id="collapse{{ $i }}" class="collapse" aria-labelledby="heading{{ $i }}" data-bs-parent="#accordionExample">
                     <div class="card-body">
-                        Respuesta a la pregunta {{ $i }}
+                        Respuesta {{ $i }}
                     </div>
                 </div>
             </div>
