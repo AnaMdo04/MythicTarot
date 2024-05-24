@@ -24,16 +24,7 @@
             </div>
         </div>
     </div>
-
-    <div class="row my-3">
-        <div class="col-md-6">
-            <div class="content-block medium"></div>
-        </div>
-        <div class="col-md-6">
-            <div class="content-block medium"></div>
-        </div>
-    </div>
-
+    
     <div class="row my-3">
         <div class="col-12">
             <div class="content-block large">
