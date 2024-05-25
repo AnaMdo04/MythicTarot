@@ -1,8 +1,19 @@
-/* General Body Styles */
-body, html {
-    font-family: 'League Spartan', sans-serif;
+body,
+html {
+    font-family: "League Spartan", sans-serif;
     background-color: #ecd1c5;
     color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Shrikhand", serif;
 }
 
 /* Container adjustments */
@@ -69,7 +80,8 @@ ul.pagination li a {
     border-radius: 5px;
 }
 
-ul.pagination li.active a, ul.pagination li a:hover {
+ul.pagination li.active a,
+ul.pagination li a:hover {
     background-color: #377081;
     color: white;
 }

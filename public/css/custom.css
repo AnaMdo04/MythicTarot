@@ -1,7 +1,23 @@
-body, html {
-    font-family:  'League Spartan', sans-serif;
+body,
+html {
+    font-family: "League Spartan", sans-serif;
     background-color: #ecd1c5;
     color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Shrikhand", serif;
+}
+
+.nav-item {
+    font-family: "Shrikhand", serif;
 }
 
 .navbar {
@@ -20,7 +36,8 @@ body, html {
     margin: 0 5px;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
     background-color: #325059 !important;
     color: #fff;
 }
@@ -66,7 +83,7 @@ input::placeholder {
 }
 
 .form-control:focus {
-    background-color: #8bb4c0; 
+    background-color: #8bb4c0;
     color: #fff;
     border-color: #254d59;
     outline: none;
@@ -123,7 +140,9 @@ input::placeholder {
     background-color: #254d59;
 }
 
-dl, ol, ul {
+dl,
+ol,
+ul {
     margin-top: 20px;
 }
 
@@ -175,7 +194,8 @@ footer.footer-area {
     transition: background-color 0.2s;
 }
 
-.dropdown-item:hover, .dropdown-item:focus {
+.dropdown-item:hover,
+.dropdown-item:focus {
     background-color: #feecde;
     color: #254d59;
 }

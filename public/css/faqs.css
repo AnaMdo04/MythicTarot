@@ -1,3 +1,21 @@
+body,
+html {
+    font-family: "League Spartan", sans-serif;
+    background-color: #ecd1c5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Shrikhand", serif;
+}
+
 .accordion {
     display: flex;
     flex-direction: column;
@@ -6,7 +24,8 @@
 
 .card {
     border: none;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     border-radius: 10px;
 }
 
@@ -17,7 +36,7 @@
 }
 
 .card-header + .collapse:not(.show) {
-    border-bottom-left-radius: 10px !important; 
+    border-bottom-left-radius: 10px !important;
     border-bottom-right-radius: 10px !important;
 }
 
@@ -52,7 +71,8 @@
     color: white !important;
 }
 
-.h2, h2 {
+.h1,
+h1 {
     text-align: center;
     margin-bottom: revert;
 }

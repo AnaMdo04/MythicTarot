@@ -1,9 +1,26 @@
+body,
+html {
+    font-family: "League Spartan", sans-serif;
+    background-color: #ecd1c5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Shrikhand", serif;
+}
 .content {
     padding: 20px;
     max-width: 800px;
     margin: auto;
     background-color: #feecde;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
 

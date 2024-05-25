@@ -1,15 +1,26 @@
-body, html {
-    font-family: 'League Spartan', sans-serif;
+body,
+html {
+    font-family: "League Spartan", sans-serif;
     background-color: #ecd1c5;
     color: #333;
     margin: 0;
     padding: 0;
 }
 
-header, footer {
+header,
+footer {
     background-color: #feecde;
     padding: 20px 0;
     text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Shrikhand", serif;
 }
 
 nav ul {
