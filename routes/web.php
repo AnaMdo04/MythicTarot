@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginRegisterController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', [LoginRegisterController::class, 'index'])->name('welcome');
 
@@ -10,7 +11,7 @@ Route::controller(LoginRegisterController::class)->group(function () {
     Route::post('/store', 'store')->name('store');
     Route::get('/tienda', 'tienda')->name('tienda');
     Route::get('/tarot', 'tarot')->name('tarot');
-    Route::get('/terms', 'terms')->name('terms');    
+    Route::get('/terms', 'terms')->name('terms');
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/cookies', 'cookies')->name('cookies');
     Route::get('/aboutUs', 'aboutUs')->name('aboutUs');
@@ -21,5 +22,5 @@ Route::controller(LoginRegisterController::class)->group(function () {
     Route::post('/logout', 'logout')->name('logout');
     Route::get('/comentarios', [LoginRegisterController::class, 'allComments'])->name('comentarios');
     Route::get('/todos-los-comentarios', 'comentarios')->name('todos-los-comentarios');
-
+    Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 });
