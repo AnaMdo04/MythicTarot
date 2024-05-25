@@ -23,7 +23,7 @@
 
 <div class="row my-3">
     <div class="col-12">
-        <div class="content-block large">
+        <div class="content-block large unique-designs">
             <div class="right-content-container">
                 <h1>¡Diseños Únicos!</h1>
                 <p>Visita nuestra tienda para explorar diseños exclusivos de cartas de tarot diseñados por artistas destacados.</p>
@@ -35,6 +35,7 @@
         </div>
     </div>
 </div>
+
 
 <div class="row my-3">
     @foreach ($smallBlocks as $block)
@@ -56,5 +57,4 @@
     </div>
 </div>
 
-</div>
 @endsection
