@@ -33,15 +33,7 @@ h6 {
     background-color: #377081;
     color: white;
     cursor: pointer;
-}
-
-.card-header + .collapse:not(.show) {
-    border-bottom-left-radius: 10px !important;
-    border-bottom-right-radius: 10px !important;
-}
-
-.card-header + .collapse.show {
-    border-radius: 0;
+    border-radius: 10px 10px 0 0;
 }
 
 .card-header .btn-link {
@@ -54,8 +46,7 @@ h6 {
 
 .card-body {
     background-color: #feecde;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-radius: 0 0 10px 10px;
 }
 
 .card-body p {
@@ -75,4 +66,11 @@ h6 {
 h1 {
     text-align: center;
     margin-bottom: revert;
+}
+
+.card-header.collapsed {
+    border-radius: 10px !important;
+}
+.card-header[aria-expanded="false"] {
+    border-radius: 10px;
 }

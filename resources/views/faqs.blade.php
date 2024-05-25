@@ -10,9 +10,9 @@
     <div class="accordion" id="accordionExample">
         @foreach ($faqs as $index => $faq)
         <div class="card">
-            <div class="card-header" id="heading{{ $index }}">
+            <div class="card-header" id="heading{{ $index }}" data-bs-toggle="collapse" data-bs-target="#collapse{{ $index }}" aria-expanded="false" aria-controls="collapse{{ $index }}">
                 <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $index }}" aria-expanded="false" aria-controls="collapse{{ $index }}">
+                    <button class="btn btn-link collapsed">
                         {{ $faq['question'] }}
                     </button>
                 </h2>
