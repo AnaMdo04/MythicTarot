@@ -177,21 +177,17 @@ footer.footer-area {
     color: #254d59;
 }
 
-.login_user {
-    margin-right: 55px !important;
-}
-
 .dropdown-menu {
     padding: 10px;
     background-color: #feecde;
     border-radius: 4px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-width: 200px;
 }
 
 .dropdown-item {
     color: #377081;
     transition: background-color 0.2s;
+    text-align: center;
 }
 
 .dropdown-item:hover,
