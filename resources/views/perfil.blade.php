@@ -11,7 +11,7 @@
                     <div class="button-container">
                         <a href="{{ route('ajustes') }}" class="btn btn-secondary btn-block mb-3 custom-button">Ajustes de Configuración</a>
                         <a href="{{ route('lecturas') }}" class="btn btn-secondary btn-block mb-3 custom-button">Mis Lecturas</a>
-                        <a href="{{ route('cartas') }}" class="btn btn-secondary btn-block custom-button">Mis Publicaciones</a>
+                        <a href="{{ route('cartas') }}" class="btn btn-secondary btn-block custom-button">Mis Diseños</a>
                     </div>
                 </div>
                 <div class="right-section text-center">

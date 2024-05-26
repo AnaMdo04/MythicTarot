@@ -21,9 +21,9 @@ class LoginRegisterController extends Controller
     public function index()
     {
         $smallBlocks = Comentario::with('user')->inRandomOrder()->take(3)->get();
-
         return view('welcome', compact('smallBlocks'));
     }
+
 
 
     public function allComments(Request $request)

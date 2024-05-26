@@ -99,9 +99,10 @@ h6 {
     height: 50px;
     border-radius: 50%;
     overflow: hidden;
-    position: absolute;
-    top: -25px;
-    left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
 }
 
 .small-image-container img {
@@ -111,12 +112,43 @@ h6 {
 
 .content-block.small {
     position: relative;
-    height: 150px;
+    height: 300px;
     padding-top: 50px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-block.small h5,
+.content-block.small p,
+.content-block.small small {
+    text-align: center;
+}
+
+.card-content {
+    max-height: 150px;
+    overflow-y: auto;
+    padding-right: 10px;
+    text-align: center;
+}
+
+.card-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.card-content::-webkit-scrollbar-thumb {
+    background-color: #377081;
+    border-radius: 3px;
 }
 
 .left-image-container {
     background-color: #377081;
     border-radius: 10px;
     box-shadow: 6px 6px 16px 1px rgba(0, 0, 0, 0.3);
+}
+
+.content-block.small p {
+    margin: 5px 0;
 }

@@ -36,23 +36,25 @@
     </div>
 </div>
 
-
+<div class="row">
+    <div class="col-12 text-center">
+        <h2>Comentarios de Nuestros Usuarios</h2>
 <div class="row my-3">
     @foreach ($smallBlocks as $block)
     <div class="col-md-4">
         <div class="content-block small">
             <div class="small-image-container">
-                <img src="{{ asset($block->user->profile_image) }}" alt="Usuario {{ $block->user->name }}" class="rounded-circle">
+                <img src="{{ $block->user->profile_image ? asset('storage/' . $block->user->profile_image) : 'https://use.fontawesome.com/releases/v5.15.4/svgs/solid/user-circle.svg' }}" alt="Usuario {{ $block->user->name }}" class="rounded-circle">
             </div>
-            <p>{{ $block->texto }}</p>
+            <div class="card-content">
+                <h5>{{ $block->user->name }}</h5>
+                <p>{{ $block->texto }}</p>
+                <p><small>{{ \Carbon\Carbon::parse($block->fecha_comentario)->format('d/m/Y') }}</small></p>
+            </div>
         </div>
     </div>
     @endforeach
 </div>
-
-<div class="row">
-    <div class="col-12 text-center">
-        <h2>Comentarios de Nuestros Usuarios</h2>
         <a href="{{ route('comentarios') }}" class="btn btn-primary">Ver todos los comentarios</a>
     </div>
 </div>
