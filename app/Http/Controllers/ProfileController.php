@@ -60,4 +60,19 @@ class ProfileController extends Controller
             return redirect()->route('perfil')->with('error', 'Error actualizando el perfil.');
         }
     }
+
+    public function deleteProfileImage()
+    {
+        $user = Auth::user();
+
+        if ($user->profile_image) {
+            Storage::delete('public/' . $user->profile_image);
+            $user->profile_image = null;
+            $user->save();
+
+            return redirect()->route('perfil.edit')->with('success', 'Foto de perfil eliminada correctamente.');
+        }
+
+        return redirect()->route('perfil.edit')->with('error', 'No se pudo eliminar la foto de perfil.');
+    }
 }

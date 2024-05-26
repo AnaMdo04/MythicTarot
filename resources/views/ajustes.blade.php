@@ -71,6 +71,14 @@
 
                         <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                     </form>
+
+                    @if (Auth::user()->profile_image)
+                        <form method="POST" action="{{ route('perfil.deleteProfileImage') }}" class="mt-3">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Eliminar Foto de Perfil</button>
+                        </form>
+                    @endif
                 </div>
             </div>
         </div>
