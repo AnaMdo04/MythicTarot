@@ -54,10 +54,10 @@ class ProfileController extends Controller
             $user->save();
 
             Log::info('Perfil actualizado correctamente');
-            return redirect()->route('perfil')->with('success', 'Perfil actualizado correctamente.');
+            return redirect()->route('perfil.edit')->with('success', 'Perfil actualizado correctamente.');
         } catch (\Exception $e) {
             Log::error('Error actualizando el perfil: ' . $e->getMessage());
-            return redirect()->route('perfil')->with('error', 'Error actualizando el perfil.');
+            return redirect()->route('perfil.edit')->with('error', 'Error actualizando el perfil.');
         }
     }
 
