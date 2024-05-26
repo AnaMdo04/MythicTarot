@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Compra extends Model
 {
-    protected $table = 'compras';
     protected $fillable = ['fecha_compra', 'total', 'user_id'];
 
     public function user()
@@ -16,6 +15,6 @@ class Compra extends Model
 
     public function disenios()
     {
-        return $this->belongsToMany(Disenio::class, 'compra_has_disenio');
+        return $this->belongsToMany(Disenio::class, 'compra_disenio')->withPivot('cantidad');
     }
 }

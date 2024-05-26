@@ -6,13 +6,13 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LecturaController;
 use App\Http\Controllers\CartaController;
+use App\Http\Controllers\TiendaController;
 
 Route::get('/', [LoginRegisterController::class, 'index'])->name('welcome');
 
 Route::controller(LoginRegisterController::class)->group(function () {
     Route::get('/register', 'register')->name('register');
     Route::post('/store', 'store')->name('store');
-    Route::get('/tienda', 'tienda')->name('tienda');
     Route::get('/tarot', 'tarot')->name('tarot');
     Route::get('/terms', 'terms')->name('terms');
     Route::get('/contact', 'contact')->name('contact');
@@ -45,3 +45,6 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/carta/{id}', [CartaController::class, 'update'])->name('carta.update');
     Route::delete('/carta/{id}', [CartaController::class, 'destroy'])->name('carta.destroy');
 });
+
+Route::get('/tienda', [TiendaController::class, 'index'])->name('tienda.index');
+Route::get('/tienda/{id}', [TiendaController::class, 'show'])->name('tienda.show');

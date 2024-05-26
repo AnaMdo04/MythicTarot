@@ -30,7 +30,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'welcome' ? 'active' : '' }}" href="{{ route('welcome') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::currentRouteName() == 'tienda' ? 'active' : '' }}" href="{{ route('tienda') }}">Tienda</a>
+                        <a class="nav-link {{ Route::currentRouteName() == 'tienda' ? 'active' : '' }}" href="{{ route('tienda.index') }}">Tienda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Route::currentRouteName() == 'tarot' ? 'active' : '' }}" href="{{ route('tarot') }}">Tarot</a>
