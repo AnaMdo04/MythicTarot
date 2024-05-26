@@ -64,6 +64,47 @@ h1 {
     border-color: #2c5561;
 }
 
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination li a,
+.pagination li span {
+    color: #377081;
+    padding: 10px 15px;
+    text-decoration: none;
+    border: 1px solid #377081;
+    border-radius: 5px;
+    background-color: #feecde;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination li.active a,
+.pagination li a:hover {
+    background-color: #377081;
+    color: white;
+}
+
+.pagination li.disabled span {
+    color: #ccc;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
 .pagination {
     display: flex;
     justify-content: center;
