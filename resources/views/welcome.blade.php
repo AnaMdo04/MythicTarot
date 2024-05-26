@@ -27,7 +27,7 @@
             <div class="right-content-container">
                 <h1>¡Diseños Únicos!</h1>
                 <p>Visita nuestra tienda para explorar diseños exclusivos de cartas de tarot diseñados por artistas destacados.</p>
-                <a class="btn btn-primary btn-block" href="{{ route('tienda') }}">Visitar Tienda</a>
+                <a class="btn btn-primary btn-block" href="{{ route('tienda.index') }}">Visitar Tienda</a>
             </div>
             <div class="left-image-container">
                 <img src="{{ asset('css/diseniosCartas.webp') }}" alt="Tienda" class="img-fluid">
