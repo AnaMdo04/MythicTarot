@@ -24,23 +24,18 @@ class User extends Authenticatable
         'register_date' => 'datetime',
     ];
 
-    // Suponiendo que existe una relación con una tabla 'lecturas'
     public function lecturas()
     {
         return $this->hasMany(Lectura::class);
     }
 
-    // Relación con comentarios
     public function comentarios()
     {
         return $this->hasMany(Comentario::class);
     }
 
-    // Relación con compras
     public function compras()
     {
         return $this->hasMany(Compra::class);
     }
-
-    // Agregar cualquier otra relación que necesites
 }
