@@ -14,24 +14,28 @@ h4,
 h5,
 h6 {
     font-family: "Shrikhand", serif;
+    text-align: center;
 }
 
-/* Container adjustments */
-.container-fluid {
+h1 {
+    font-size: 60px;
+}
+
+.container {
     padding: 20px;
 }
 
-/* Sidebar styles */
-.filter-sidebar {
-    border-right: 1px solid #ccc;
-    padding-right: 20px;
+.filter-container {
+    background-color: #feecde;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width: 300px; /* Añadir un ancho máximo */
 }
 
-/* Card filter image styles */
-.filter-card-image {
-    height: 30px;
-    width: auto;
-    margin-right: 10px;
+.filter-container h2 {
+    margin-bottom: 20px;
 }
 
 .form-check-label {
@@ -40,9 +44,8 @@ h6 {
     margin-left: 5px;
 }
 
-/* Input and button styles */
 .form-check-input {
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 .filter-container button {
@@ -50,7 +53,6 @@ h6 {
     margin-top: 20px;
 }
 
-/* Comment box styling */
 .comment {
     background-color: #feecde;
     padding: 15px;
@@ -64,24 +66,66 @@ h6 {
     line-height: 1.5;
 }
 
-/* Pagination links styling */
-ul.pagination {
+.filter-sidebar .filter-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+}
+
+.form-check {
+    margin-bottom: 10px;
+}
+
+.filter-container {
+    margin-bottom: 30px;
+}
+
+.pagination {
     display: flex;
     justify-content: center;
-    list-style: none;
-    padding: 0;
+    margin-top: 20px;
 }
 
-ul.pagination li a {
-    color: #377081;
-    padding: 5px 10px;
+.bg-white {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 4px;
     text-decoration: none;
-    border: 1px solid #377081;
-    border-radius: 5px;
+    color: black;
+    border: 1px solid #254d59 !important;
+    background-color: #377081 !important;
 }
 
-ul.pagination li.active a,
-ul.pagination li a:hover {
-    background-color: #377081;
-    color: white;
+.bg-white:hover {
+    color: black !important;
+    background-color: #254d59 !important;
+}
+
+/* Responsividad */
+@media (max-width: 767.98px) {
+    .filter-sidebar {
+        margin-bottom: 20px;
+    }
+
+    .filter-container {
+        padding: 10px;
+    }
+
+    .comment {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .pagination {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bg-white {
+        padding: 6px 10px;
+        margin: 5px 0;
+    }
 }

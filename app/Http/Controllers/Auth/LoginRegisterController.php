@@ -18,37 +18,19 @@ class LoginRegisterController extends Controller
             'logout', 'dashboard', 'tienda', 'aboutUs', 'tarot', 'faqs', 'terms', 'cookies', 'contact', 'allComments', 'index'
         ]);
     }
+
     public function index()
     {
         $smallBlocks = Comentario::with('user')->inRandomOrder()->take(3)->get();
         return view('welcome', compact('smallBlocks'));
     }
 
-
-
     public function allComments(Request $request)
     {
-        $comments = Comentario::with(['user', 'lectura'])->paginate(10);
         $cartas = Carta::all();
+        $comments = Comentario::with(['user', 'lectura'])->simplePaginate(10);
         return view('comentarios', compact('comments', 'cartas'));
     }
-
-
-    public function comentarios(Request $request)
-    {
-        $query = Comentario::with(['user', 'lectura']);
-
-        if ($request->has('filter')) {
-            $query->whereHas('lectura', function ($q) use ($request) {
-                $q->where('cards', 'like', '%' . $request->filter . '%');
-            });
-        }
-
-        $comments = $query->paginate(10);
-        return view('comentarios.filtered', compact('comments'));
-    }
-
-
 
     public function register()
     {
@@ -131,7 +113,6 @@ class LoginRegisterController extends Controller
 
         return view('faqs', compact('faqs'));
     }
-
 
     public function terms()
     {
