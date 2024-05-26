@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container">
+    <link href="{{ asset('css/cartas.css') }}" rel="stylesheet">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Mis Cartas</div>
-
                 <div class="card-body">
                     @foreach($cartas as $carta)
                     <div class="card mb-3">

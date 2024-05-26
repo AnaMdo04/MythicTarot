@@ -1,0 +1,157 @@
+body,
+html {
+    font-family: "League Spartan", sans-serif;
+    background-color: #ecd1c5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.card {
+    background-color: #feecde;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px #8e7c74;
+    border: none;
+    color: #333;
+}
+
+.card-header {
+    background-color: #377081;
+    color: #ffffff;
+    border-bottom: none;
+    padding: 10px 20px;
+    font-family: "Shrikhand", serif;
+    font-size: 1.5em;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #648e9b;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus {
+    border-color: #377081;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+        0 0 8px rgba(55, 112, 129, 0.6);
+    outline: none;
+}
+
+.btn-primary,
+.btn-danger {
+    background-color: #377081;
+    border-color: #377081;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px #8e7c74;
+    color: #ffffff;
+    display: block;
+    width: auto;
+}
+
+.btn-primary:hover,
+.btn-danger:hover {
+    background-color: #2c5561;
+    border-color: #2c5561;
+}
+
+.invalid-feedback {
+    color: #e3342f;
+    font-size: 0.875em;
+}
+
+.alert {
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 0.875em;
+}
+
+.alert-success {
+    background-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.custom-file-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #648e9b;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.custom-file-label {
+    color: #fff;
+    background-color: #648e9b;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.custom-file-input-container input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file-name {
+    color: #fff;
+    margin-left: 10px;
+    font-size: 1em;
+}
+
+.delete-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+element.style {
+}
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+    cursor: pointer;
+}
+.btn-danger {
+    background-color: #377081;
+    border-color: #377081;
+}
+.btn-danger {
+    --bs-btn-active-color: white;
+    --bs-btn-active-bg: #2c5561;
+    --bs-btn-active-border-color: #2c5561;
+}

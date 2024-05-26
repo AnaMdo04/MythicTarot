@@ -2,10 +2,12 @@
 
 @section('content')
 <div class="container">
+<link href="{{ asset('css/lecturas.css') }}" rel="stylesheet">
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center">HISTORIAL LECTURAS</div>
+                <div class="card-header text-center">Historial Lecturas</div>
                 <div class="card-body">
                     @if (session('success'))
                     <div class="alert alert-success" role="alert">
@@ -17,7 +19,7 @@
                     <div class="card mb-3">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="{{ asset('images/tarot-card.png') }}" class="card-img" alt="Imagen Cartas">
+                                <img src="{{ asset('css/tarot-card.png') }}" class="card-img" alt="Imagen Cartas">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -38,19 +40,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('styles')
-<style>
-    .card-header,
-    .btn-primary {
-        background-color: #ddbea9;
-        border-color: #ddbea9;
-    }
-
-    .btn-primary:hover {
-        background-color: #ac7b75;
-        border-color: #ac7b75;
-    }
-</style>
 @endsection
