@@ -7,6 +7,10 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LecturaController;
 use App\Http\Controllers\CartaController;
 use App\Http\Controllers\TiendaController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CompraController;
+use App\Http\Controllers\UserController;
+
 
 Route::get('/', [LoginRegisterController::class, 'index'])->name('welcome');
 
@@ -48,3 +52,15 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/tienda', [TiendaController::class, 'index'])->name('tienda.index');
 Route::get('/tienda/{id}', [TiendaController::class, 'show'])->name('tienda.show');
+Route::post('/cart/add/{id}', [CartController::class, 'addItem'])->name('cart.add');
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::delete('/cart/remove/{id}', [CartController::class, 'removeItem'])->name('cart.remove');
+
+Route::get('/checkout', [CompraController::class, 'checkout'])->name('checkout');
+Route::post('/process-payment', [CompraController::class, 'processPayment'])->name('processPayment');
+Route::get('/payment-callback', [CompraController::class, 'paymentCallback'])->name('payment.callback');
+Route::get('/mis-disenios', [UserController::class, 'misDisenios'])->name('mis-disenios');
+Route::get('/payment-success', function() {
+    return view('success');
+})->name('payment.success');

@@ -12,7 +12,7 @@ class CartaController extends Controller
     public function index()
     {
         $cartas = Carta::where('user_id', Auth::id())->get();
-        return view('cartas', compact('cartas'));
+        return view('mis-disenios', compact('cartas'));
     }
 
     public function edit($id)
@@ -44,7 +44,7 @@ class CartaController extends Controller
         $carta->descripcion = $request->input('descripcion');
         $carta->save();
 
-        return redirect()->route('cartas')->with('success', 'Carta actualizada correctamente.');
+        return redirect()->route('mis-disenios')->with('success', 'Carta actualizada correctamente.');
     }
 
     public function destroy($id)
@@ -58,6 +58,6 @@ class CartaController extends Controller
 
         $carta->delete();
 
-        return redirect()->route('cartas')->with('success', 'Carta eliminada correctamente.');
+        return redirect()->route('mis-disenios')->with('success', 'Carta eliminada correctamente.');
     }
 }

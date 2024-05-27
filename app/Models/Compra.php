@@ -2,19 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Compra extends Model
 {
-    protected $fillable = ['fecha_compra', 'total', 'user_id'];
+    use HasFactory;
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $fillable = ['fecha_compra', 'total', 'user_id'];
 
     public function disenios()
     {
-        return $this->belongsToMany(Disenio::class, 'compra_disenio')->withPivot('cantidad');
+        return $this->belongsToMany(Disenio::class, 'compra_has_disenio');
     }
 }

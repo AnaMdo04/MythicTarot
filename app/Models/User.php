@@ -2,40 +2,32 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, Notifiable;
 
     protected $fillable = [
-        'name', 'email', 'password', 'profile_image', 'is_artist', 'register_date'
+        'name',
+        'email',
+        'password',
     ];
 
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'register_date' => 'datetime',
     ];
 
-    public function lecturas()
+    public function cart()
     {
-        return $this->hasMany(Lectura::class);
-    }
-
-    public function comentarios()
-    {
-        return $this->hasMany(Comentario::class);
-    }
-
-    public function compras()
-    {
-        return $this->hasMany(Compra::class);
+        return $this->hasOne(Cart::class);
     }
 }

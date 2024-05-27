@@ -9,6 +9,11 @@ class Disenio extends Model
     protected $table = 'disenios';
     protected $fillable = ['nombre_disenio', 'precio', 'imagen_url', 'artista_id'];
 
+    public function cartItems()
+    {
+        return $this->hasMany(CartItem::class);
+    }
+    
     public function artista()
     {
         return $this->belongsTo(Artista::class);
@@ -23,9 +28,8 @@ class Disenio extends Model
     {
         return $this->belongsToMany(Categoria::class, 'categoria_has_disenio');
     }
-
     public function compras()
     {
-        return $this->belongsToMany(Compra::class, 'compra_has_disenio');
+        return $this->belongsToMany(Compra::class, 'compra_has_disenio', 'disenio_id', 'compra_id')->withPivot('cantidad');
     }
 }
