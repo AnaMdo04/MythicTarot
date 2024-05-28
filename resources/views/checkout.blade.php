@@ -1,5 +1,3 @@
-<!-- resources/views/checkout.blade.php -->
-
 @extends('auth.layouts')
 
 @section('title', 'Checkout - MythicTarot')

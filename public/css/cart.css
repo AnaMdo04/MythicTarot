@@ -1,0 +1,25 @@
+.container {
+    text-align: center;
+}
+
+.list-group-item {
+    background-color: #f0dcd3;
+    border-color: #b5998b;
+    box-shadow: 0 2px 4px #8e7c74;
+}
+
+.btn-danger {
+    background-color: #4e1d0e;
+    border-color: #371207;
+}
+
+.btn-danger:hover {
+    background-color: #692915;
+    border-color: #371207;
+}
+
+.btn-danger {
+    --bs-btn-active-color: white;
+    --bs-btn-active-bg: #692915;
+    --bs-btn-active-border-color: #371207;
+}

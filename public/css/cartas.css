@@ -27,6 +27,7 @@ html {
     padding: 10px 20px;
     font-family: "Shrikhand", serif;
     font-size: 1.5em;
+    text-align: center !important;
 }
 
 .card-body {

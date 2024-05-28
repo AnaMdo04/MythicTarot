@@ -27,8 +27,8 @@ h6 {
 
 .navbar-nav .nav-item .nav-link {
     padding: 10px 20px;
-    background-color: #377081;
-    color: #ffffff;
+    color: #377081;
+    font-size: large;
     border-radius: 4px;
     transition: background-color 0.3s ease;
     white-space: nowrap;
@@ -36,10 +36,23 @@ h6 {
     margin: 0 5px;
 }
 
-.nav-link:hover,
-.nav-link.active {
-    background-color: #325059 !important;
-    color: #fff;
+.register,
+.login {
+    background-color: #377081;
+    color: #ffffff !important;
+}
+
+.login:hover,
+.register:hover,
+.register.active,
+.login.active {
+    background-color: #325059;
+    color: #ffffff !important;
+}
+
+.menu:hover,
+.menu.active {
+    color: #325059 !important;
 }
 
 .login-image img {
@@ -65,27 +78,22 @@ h6 {
 }
 
 .form-control {
-    background-color: #648e9b;
-    color: #fff;
+    background-color: #f0dcd3;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    color: black !important;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border: none;
     padding: 10px;
-    text-align: center;
+    text-align: start !important;
 }
 
-input::placeholder {
-    color: #fff !important;
-}
-
-.form-control:active {
-    background-color: #c8e6c9;
-    color: #205723;
+.form-group.mb-3 {
+    text-align: start !important;
 }
 
 .form-control:focus {
-    background-color: #8bb4c0;
-    color: #fff;
-    border-color: #254d59;
+    background-color: #f0dcd3;
+    border-color: #dabdaf;
     outline: none;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }

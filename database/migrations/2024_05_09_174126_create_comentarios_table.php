@@ -11,9 +11,9 @@ class CreateComentariosTable extends Migration
         Schema::create('comentarios', function (Blueprint $table) {
             $table->id();
             $table->text('texto');
-            $table->dateTime('fecha_comentario');
-            $table->foreignId('lectura_id')->constrained('lecturas');
-            $table->foreignId('user_id')->constrained('users');
+            $table->timestamp('fecha_comentario');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('lectura_id')->constrained('lecturas')->onDelete('cascade');
             $table->timestamps();
         });
     }

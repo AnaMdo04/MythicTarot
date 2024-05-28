@@ -27,32 +27,32 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::currentRouteName() == 'welcome' ? 'active' : '' }}" href="{{ route('welcome') }}">Inicio</a>
+                        <a class="nav-link menu {{ Route::currentRouteName() == 'welcome' ? 'active' : '' }}" href="{{ route('welcome') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::currentRouteName() == 'tienda' ? 'active' : '' }}" href="{{ route('tienda.index') }}">Tienda</a>
+                        <a class="nav-link menu {{ Route::currentRouteName() == 'tienda.index' ? 'active' : '' }}" href="{{ route('tienda.index') }}">Tienda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::currentRouteName() == 'tarot' ? 'active' : '' }}" href="{{ route('tarot') }}">Tarot</a>
+                        <a class="nav-link menu {{ Route::currentRouteName() == 'tarot' ? 'active' : '' }}" href="{{ route('tarot') }}">Tarot</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::currentRouteName() == 'aboutUs' ? 'active' : '' }}" href="{{ route('aboutUs') }}">Sobre Nosotros</a>
+                        <a class="nav-link menu {{ Route::currentRouteName() == 'aboutUs' ? 'active' : '' }}" href="{{ route('aboutUs') }}">Sobre Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::currentRouteName() == 'faqs' ? 'active' : '' }}" href="{{ route('faqs') }}">FAQs</a>
+                        <a class="nav-link menu {{ Route::currentRouteName() == 'faqs' ? 'active' : '' }}" href="{{ route('faqs') }}">FAQs</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Iniciar Sesión</a>
+                        <a class="nav-link login {{ Route::currentRouteName() == 'login' ? 'active' : '' }}" href="{{ route('login') }}">Iniciar Sesión</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Registrarse</a>
+                        <a class="nav-link register {{ Route::currentRouteName() == 'register' ? 'active' : '' }}" href="{{ route('register') }}">Registrarse</a>
                     </li>
                     @else
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle login_user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link login dropdown-toggle login_user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">

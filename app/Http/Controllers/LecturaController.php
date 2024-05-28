@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Lectura;
+use App\Models\Comentario;
 
 class LecturaController extends Controller
 {
@@ -40,6 +41,10 @@ class LecturaController extends Controller
         $lectura = Lectura::findOrFail($id);
         $this->authorize('delete', $lectura);
 
+        // Eliminar comentarios asociados
+        Comentario::where('lectura_id', $lectura->id)->delete();
+
+        // Eliminar la lectura
         $lectura->delete();
 
         return redirect()->route('lecturas')->with('success', 'Lectura eliminada correctamente.');
