@@ -17,7 +17,7 @@
             <a href="{{ route('tienda.index') }}" class="btn btn-primary">Volver a la tienda</a>
             <form action="{{ route('cart.add', $disenio->id) }}" method="POST">
                 @csrf
-                <button type="submit" class="btn btn-success mt-3">Añadir al Carrito</button>
+                <button type="submit" class="btn btn-primary">Añadir al Carrito</button>
             </form>
         </div>
     </div>

@@ -13,10 +13,11 @@
 }
 
 .form-control {
-    background-color: #648e9b;
+    background-color: #f0dcd3;
     color: #fff;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border: none;
     padding: 10px;
     text-align: center;
 }

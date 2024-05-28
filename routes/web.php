@@ -61,6 +61,7 @@ Route::get('/checkout', [CompraController::class, 'checkout'])->name('checkout')
 Route::post('/process-payment', [CompraController::class, 'processPayment'])->name('processPayment');
 Route::get('/payment-callback', [CompraController::class, 'paymentCallback'])->name('payment.callback');
 Route::get('/mis-disenios', [UserController::class, 'misDisenios'])->name('mis-disenios');
+
 Route::get('/payment-success', function() {
     return view('success');
 })->name('payment.success');

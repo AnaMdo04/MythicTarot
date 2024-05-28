@@ -12,7 +12,7 @@ class TiendaController extends Controller
 {
     public function index()
     {
-        $disenios = Disenio::paginate(9);
+        $disenios = Disenio::Simplepaginate(9);
         return view('tienda.index', compact('disenios'));
     }
 
