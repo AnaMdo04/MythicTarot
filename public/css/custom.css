@@ -27,13 +27,14 @@ h6 {
 
 .navbar-nav .nav-item .nav-link {
     padding: 10px 20px;
-    color: #377081;
+    color: #325059;
     font-size: large;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
     white-space: nowrap;
     text-align: center;
     margin: 0 5px;
+    font-size: larger;
+    transition: transform 0.2s ease;
 }
 
 .register,
@@ -50,9 +51,16 @@ h6 {
     color: #ffffff !important;
 }
 
-.menu:hover,
+.menu:hover {
+    color: #377081 !important;
+    transform: scale(1.2); 
+}
+
 .menu.active {
-    color: #325059 !important;
+    text-decoration: underline;
+    color: #377081 !important;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
 }
 
 .login-image img {
@@ -96,19 +104,6 @@ h6 {
     border-color: #dabdaf;
     outline: none;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.btn-primary {
-    background-color: #377081;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px #8e7c74;
-    --bs-btn-hover-bg: #254d59;
-    --bs-btn-active-bg: #254d59;
-    display: block;
-    width: 50%;
-    margin: 10px auto;
 }
 
 .btn-link {

@@ -1,0 +1,15 @@
+
+.btn-primary {
+    background-color: #ee8925;
+    border: 1px solid #f79533 !important;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px #8e7c74;
+    --bs-btn-hover-bg: #f7a656;
+    --bs-btn-active-bg: #f7a656;
+    display: block;
+    transition: background-color 0.3s ease;
+    width: 50%;
+    margin: 10px auto;
+}

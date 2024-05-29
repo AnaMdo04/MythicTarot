@@ -50,3 +50,17 @@ h4 {
     margin-top: 10px;
     font-size: 14px;
 }
+
+
+.btn-primary {
+    background-color: #377081;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px #8e7c74;
+    --bs-btn-hover-bg: #254d59;
+    --bs-btn-active-bg: #254d59;
+    display: block;
+    width: 50%;
+    margin: 10px auto;
+}

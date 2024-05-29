@@ -1,6 +1,8 @@
 @extends('auth.layouts')
 
 @section('content')
+
+<link href="{{ asset('css/login.css') }}" rel="stylesheet">
 <div class="container">
     <div class="row align-items-center">
         <div class="col-md-6 login-image">

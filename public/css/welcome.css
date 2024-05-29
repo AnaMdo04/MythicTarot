@@ -58,13 +58,26 @@ h6 {
     text-align: center;
 }
 
+
 .btn-primary {
-    padding: 10px 20px;
-    margin-top: 15px;
-    border-radius: 5px;
-    background-color: #377081;
+    background-color: #ee8925;
+    border: 1px solid #f79533 !important;
     color: white;
-    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px #8e7c74;
+    --bs-btn-hover-bg: #f7a656;
+    --bs-btn-active-bg: #f7a656;
+    display: block;
+    transition: background-color 0.3s ease;
+    width: 50%;
+    margin: 10px auto;
+}
+
+.btn-primary:hover {
+    border: 1px solid #f7a656;
+    border: 1px solid #f7a656 !important;
+    color: black !important;
 }
 
 @media (max-width: 768px) {

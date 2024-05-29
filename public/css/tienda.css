@@ -125,3 +125,15 @@ h1 {
     color: whitesmoke !important;
     background-color: #254d59 !important;
 }
+
+
+.btn-primary {
+    background-color: #377081;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px #8e7c74;
+    --bs-btn-hover-bg: #254d59;
+    --bs-btn-active-bg: #254d59;
+    display: block;
+    margin: 10px auto;
+}
