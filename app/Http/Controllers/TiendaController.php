@@ -24,6 +24,10 @@ class TiendaController extends Controller
 
     public function addToCart(Request $request, $id)
     {
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('intended_url', url()->current());
+        }
+
         $disenio = Disenio::findOrFail($id);
         $user = Auth::user();
 

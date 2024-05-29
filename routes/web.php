@@ -11,7 +11,6 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CompraController;
 use App\Http\Controllers\UserController;
 
-
 Route::get('/', [LoginRegisterController::class, 'index'])->name('welcome');
 
 Route::controller(LoginRegisterController::class)->group(function () {
@@ -48,11 +47,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/carta/{id}/edit', [CartaController::class, 'edit'])->name('carta.edit');
     Route::put('/carta/{id}', [CartaController::class, 'update'])->name('carta.update');
     Route::delete('/carta/{id}', [CartaController::class, 'destroy'])->name('carta.destroy');
+
+    Route::post('/cart/add/{id}', [TiendaController::class, 'addToCart'])->name('cart.add');
 });
 
 Route::get('/tienda', [TiendaController::class, 'index'])->name('tienda.index');
 Route::get('/tienda/{id}', [TiendaController::class, 'show'])->name('tienda.show');
-Route::post('/cart/add/{id}', [CartController::class, 'addItem'])->name('cart.add');
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::delete('/cart/remove/{id}', [CartController::class, 'removeItem'])->name('cart.remove');

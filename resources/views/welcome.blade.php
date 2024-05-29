@@ -15,7 +15,7 @@
                 <h1>Descubre tu futuro con MythicTarot</h1>
                 <p>Explora el poder del tarot para desvelar los secretos de tu destino.</p>
                 <p>Únete hoy y realiza tu primera lectura de tarot.</p>
-                <a class="btn btn-primary btn-block" href="{{ route('register') }}">Registrarse</a>
+                <a class="btn btn-primary btn-block" href="{{ route('tarot') }}">Lectura del Tarot</a>
             </div>
         </div>
     </div>

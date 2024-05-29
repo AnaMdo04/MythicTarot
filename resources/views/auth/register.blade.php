@@ -11,7 +11,7 @@
         <div class="col-md-6">
             <div class="login-form">
                 <h2>Registrarse</h2>
-                <form action="{{ route('store') }}" method="post"> <!-- Cambio aquí la ruta de acción a 'store' -->
+                <form action="{{ route('store') }}" method="post">
                     @csrf
                     <div class="form-group mb-3">
                         <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Nombre" required value="{{ old('name') }}">
@@ -36,7 +36,7 @@
                     </div>
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary btn-block">Registrar</button>
-                        <a href="{{ route('login') }}" class="btn btn-primary btn-block">Iniciar Sesión</a>
+                        <p>¿Ya tienes una cuenta? <a href="{{ route('login') }}" class="Linklogin">Inicia Sesión</a></p>
                     </div>
                 </form>
             </div>

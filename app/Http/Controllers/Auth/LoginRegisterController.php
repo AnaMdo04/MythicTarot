@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use App\Models\Comentario;
-use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Models\Carta;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Cart;
 
 class LoginRegisterController extends Controller
 {
@@ -45,15 +45,15 @@ class LoginRegisterController extends Controller
             'email' => 'required|email|max:250|unique:users',
             'password' => 'required|min:8|confirmed'
         ]);
-    
+
         $user = User::create([
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
             'password' => Hash::make($validatedData['password']),
         ]);
-    
+
         Cart::create(['user_id' => $user->id]);
-    
+
         Auth::login($user);
         return redirect()->route('welcome')->with('success', 'Registered and logged in successfully!');
     }
@@ -69,18 +69,19 @@ class LoginRegisterController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
-    
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-    
+
             $user = Auth::user();
             if (!$user->cart) {
                 Cart::create(['user_id' => $user->id]);
             }
-    
-            return redirect()->intended('/')->with('success', 'Logged in successfully');
+
+            $intendedUrl = session('intended_url', '/');
+            return redirect()->intended($intendedUrl)->with('success', 'Logged in successfully');
         }
-    
+
         return back()->withErrors(['email' => 'The provided credentials do not match our records.']);
     }
 

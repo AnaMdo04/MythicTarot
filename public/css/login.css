@@ -13,3 +13,15 @@
     width: 50%;
     margin: 10px auto;
 }
+
+.Linkregister, .Linklogin {
+    color: #377081;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+    font-size: large;
+}
+
+.Linkregister:hover, .Linklogin:hover {
+    color: #325059;
+}
