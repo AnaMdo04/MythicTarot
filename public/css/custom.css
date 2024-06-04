@@ -36,6 +36,9 @@ h6 {
     font-size: larger;
     transition: transform 0.2s ease;
 }
+.card.al-reves {
+    transform: rotate(180deg);
+}
 
 .register,
 .login {

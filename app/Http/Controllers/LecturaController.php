@@ -17,7 +17,7 @@ class LecturaController extends Controller
 
     public function show($id)
     {
-        $lectura = Lectura::findOrFail($id);
+        $lectura = Lectura::with('cartas', 'comentarios')->findOrFail($id);
         return view('lectura.show', compact('lectura'));
     }
 
@@ -27,13 +27,23 @@ class LecturaController extends Controller
         $this->authorize('update', $lectura);
 
         $request->validate([
-            'respuesta' => 'required|string',
+            'comentario' => 'required|string',
         ]);
 
-        $lectura->respuesta = $request->input('respuesta');
-        $lectura->save();
+        $comentario = Comentario::where('lectura_id', $lectura->id)->first();
+        if ($comentario) {
+            $comentario->texto = $request->input('comentario');
+            $comentario->save();
+        } else {
+            Comentario::create([
+                'texto' => $request->input('comentario'),
+                'fecha_comentario' => now(),
+                'lectura_id' => $lectura->id,
+                'user_id' => Auth::id(),
+            ]);
+        }
 
-        return redirect()->route('lectura.show', $lectura->id)->with('success', 'Lectura actualizada correctamente.');
+        return redirect()->route('lectura.show', $lectura->id)->with('success', 'Comentario actualizado correctamente.');
     }
 
     public function destroy($id)

@@ -26,25 +26,70 @@
                     </div>
                     @endif
 
-                    <h5 class="card-title">{{ $lectura->fecha_lectura }}</h5>
-                    <p class="card-text">{{ $lectura->respuesta }}</p>
+                    <h5 class="card-title">Fecha y Hora de la Lectura: {{ $lectura->fecha_lectura }}</h5>
+                    <p><strong>Pregunta:</strong> {{ $lectura->pregunta }}</p>
+                    
+                    <h5 class="mt-4">Cartas Seleccionadas:</h5>
+                    <div class="row">
+                        @foreach ($lectura->cartas as $carta)
+                            <div class="col-md-4">
+                                <div class="card mb-3">
+                                    <img src="{{ asset('storage/' . $carta->imagen_url) }}" class="card-img-top" alt="{{ $carta->nombre_carta }}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $carta->nombre_carta }}</h5>
+                                        <p class="card-text">{{ $carta->descripcion }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
 
-                    <form method="POST" action="{{ route('lectura.update', $lectura->id) }}">
+                    <h5 class="mt-4">Comentario:</h5>
+                    @if ($lectura->comentarios->isNotEmpty())
+                        @foreach ($lectura->comentarios as $comentario)
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <p class="card-text">{{ $comentario->texto }}</p>
+                                    <p class="card-text"><small class="text-muted">{{ $comentario->fecha_comentario }}</small></p>
+                                    <button class="btn btn-link p-0" onclick="toggleEditForm()">Editar Comentario</button>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <p>No hay comentarios.</p>
+                        <button class="btn btn-primary" onclick="toggleAddForm()">Añadir Comentario</button>
+                    @endif
+
+                    <form method="POST" action="{{ route('tarot.guardarComentario', $lectura->id) }}" id="addComentarioForm" style="display: none;">
                         @csrf
-                        @method('PUT')
-
                         <div class="form-group">
-                            <label for="respuesta">Editar Respuesta</label>
-                            <textarea class="form-control @error('respuesta') is-invalid @enderror" id="respuesta" name="respuesta" rows="3">{{ old('respuesta', $lectura->respuesta) }}</textarea>
-                            @error('respuesta')
+                            <label for="texto">Añadir Comentario</label>
+                            <textarea class="form-control @error('texto') is-invalid @enderror" id="texto" name="texto" rows="3"></textarea>
+                            @error('texto')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                         </div>
-
-                        <button type="submit" class="btn btn-primary mt-3">Guardar Cambios</button>
+                        <button type="submit" class="btn btn-primary mt-3">Guardar Comentario</button>
                     </form>
+
+                    @if ($lectura->comentarios->isNotEmpty())
+                        <form method="POST" action="{{ route('tarot.updateComentario', $lectura->comentarios->first()->id) }}" id="editComentarioForm" style="display: none;">
+                            @csrf
+                            @method('PUT')
+                            <div class="form-group">
+                                <label for="texto">Editar Comentario</label>
+                                <textarea class="form-control @error('texto') is-invalid @enderror" id="texto" name="texto" rows="3">{{ old('texto', $lectura->comentarios->first()->texto ?? '') }}</textarea>
+                                @error('texto')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Guardar Cambios</button>
+                        </form>
+                    @endif
 
                     <form method="POST" action="{{ route('lectura.destroy', $lectura->id) }}" class="mt-3">
                         @csrf
@@ -58,4 +103,16 @@
         </div>
     </div>
 </div>
+
+<script>
+    function toggleAddForm() {
+        document.getElementById('addComentarioForm').style.display = 'block';
+        document.getElementById('editComentarioForm').style.display = 'none';
+    }
+
+    function toggleEditForm() {
+        document.getElementById('editComentarioForm').style.display = 'block';
+        document.getElementById('addComentarioForm').style.display = 'none';
+    }
+</script>
 @endsection

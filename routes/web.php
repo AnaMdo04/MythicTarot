@@ -10,13 +10,14 @@ use App\Http\Controllers\TiendaController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CompraController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TarotController;
 
 Route::get('/', [LoginRegisterController::class, 'index'])->name('welcome');
 
 Route::controller(LoginRegisterController::class)->group(function () {
     Route::get('/register', 'register')->name('register');
     Route::post('/store', 'store')->name('store');
-    Route::get('/tarot', 'tarot')->name('tarot');
+    Route::get('/tarot', [TarotController::class, 'index'])->name('tarot');
     Route::get('/terms', 'terms')->name('terms');
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/cookies', 'cookies')->name('cookies');
@@ -65,3 +66,12 @@ Route::get('/mis-disenios', [UserController::class, 'misDisenios'])->name('mis-d
 Route::get('/payment-success', function () {
     return view('success');
 })->name('payment.success');
+
+// Tarot routes
+Route::get('/tarot', [TarotController::class, 'index'])->name('tarot');
+Route::get('/tarot/preguntar', [TarotController::class, 'preguntar'])->name('tarot.preguntar');
+Route::post('/tarot/seleccionar-tirada', [TarotController::class, 'seleccionarTirada'])->name('tarot.seleccionar_tirada');
+Route::post('/tarot/realizar-tirada', [TarotController::class, 'realizarTirada'])->name('tarot.realizar_tirada');
+Route::post('/tarot/guardar-comentario/{lectura_id}', [TarotController::class, 'guardarComentario'])->name('tarot.guardarComentario');
+Route::put('/lectura/updateComentario/{comentario_id}', [TarotController::class, 'updateComentario'])->name('tarot.updateComentario');
+Route::get('/tarot/resultado/{id}', [TarotController::class, 'resultado'])->name('tarot.resultado');

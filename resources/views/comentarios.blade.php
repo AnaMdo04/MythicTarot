@@ -14,23 +14,32 @@
                     <div class="filter-list" style="max-height: 200px; overflow-y: auto;">
                         @foreach ($cartas as $carta)
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{ $carta->id }}" id="carta{{ $carta->id }}" name="cartas[]">
+                                <input class="form-check-input" type="checkbox" value="{{ $carta->id }}" id="carta{{ $carta->id }}" name="cartas[]" {{ in_array($carta->id, request('cartas', [])) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="carta{{ $carta->id }}">
                                     {{ $carta->nombre_carta }}
                                 </label>
                             </div>
                         @endforeach
                     </div>
-                    <button type="submit" class="btn btn-primary">Aplicar Filtro</button>
+                    <button type="submit" class="btn btn-primary mt-2">Aplicar Filtro</button>
                 </form>
             </div>
         </div>
         <div class="col-md-9">
             @foreach ($comments as $comment)
-                <div class="comment">
-                    <p>{{ $comment->texto }}</p>
-                    <p>Por: {{ $comment->user->name }}</p>
-                    <p>En lectura de: {{ $comment->lectura->cards ?? 'No cards' }}</p>
+                <div class="comment mb-3">
+                    <div>
+                        <div class="card-body">
+                            <p class="card-text">{{ $comment->texto }}</p>
+                            <p class="card-text"><small class="text-muted">Por: {{ $comment->user->name }}</small></p>
+                            <p class="card-text"><small class="text-muted">Cartas:</small></p>
+                            <ul>
+                                @foreach ($comment->lectura->cartas as $carta)
+                                    <li>{{ $carta->nombre_carta }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             @endforeach
             <div class="pagination">

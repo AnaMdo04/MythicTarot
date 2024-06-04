@@ -1,22 +1,22 @@
 <?php
-
 namespace App\Providers;
-
-// use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
+use App\Models\Comentario;
+use App\Policies\ComentarioPolicy;
 use App\Models\Lectura;
 use App\Policies\LecturaPolicy;
-
 
 class AuthServiceProvider extends ServiceProvider
 {
     /**
-     * The model to policy mappings for the application.
+     * The policy mappings for the application.
      *
-     * @var array<class-string, class-string>
+     * @var array
      */
     protected $policies = [
         Lectura::class => LecturaPolicy::class,
+        Comentario::class => ComentarioPolicy::class,
     ];
 
     /**
@@ -27,7 +27,5 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        //
     }
 }

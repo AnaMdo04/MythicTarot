@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use App\Models\Comentario;
-use Illuminate\Http\Request;
 use App\Models\Carta;
+use App\Models\Cart;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Cart;
 
 class LoginRegisterController extends Controller
 {
@@ -29,7 +29,15 @@ class LoginRegisterController extends Controller
     public function allComments(Request $request)
     {
         $cartas = Carta::all();
-        $comments = Comentario::with(['user', 'lectura'])->simplePaginate(10);
+        $commentsQuery = Comentario::with(['user', 'lectura.cartas']);
+
+        if ($request->has('cartas')) {
+            $commentsQuery->whereHas('lectura.cartas', function ($query) use ($request) {
+                $query->whereIn('cartas.id', $request->input('cartas'));
+            });
+        }
+
+        $comments = $commentsQuery->simplePaginate(10);
         return view('comentarios', compact('comments', 'cartas'));
     }
 
@@ -142,8 +150,9 @@ class LoginRegisterController extends Controller
     public function tarot()
     {
         if (Auth::check()) {
-            return view('tarot');
+            return view('tarot.index');
         } else {
+            session(['intended_url' => url()->current()]);
             return redirect('login')->with('error', 'You need to log in to access this page.');
         }
     }

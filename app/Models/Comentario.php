@@ -2,22 +2,27 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;  // Make sure to import the User model
 
 class Comentario extends Model
 {
-    protected $table = 'comentarios';
-    protected $fillable = ['texto', 'fecha_comentario', 'lectura_id', 'user_id'];
+    use HasFactory;
 
-    // Rename usuario() to user() to match your User model
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id');  // Assuming 'usuario_id' is the correct foreign key
-    }
+    protected $fillable = [
+        'texto',
+        'fecha_comentario',
+        'lectura_id',
+        'user_id'
+    ];
 
     public function lectura()
     {
         return $this->belongsTo(Lectura::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

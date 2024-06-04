@@ -2,17 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Lectura extends Model
 {
-    protected $table = 'lecturas';
-    protected $fillable = ['fecha_lectura', 'pregunta', 'respuesta', 'user_id'];
+    use HasFactory;
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $fillable = [
+        'fecha_lectura',
+        'pregunta',
+        'respuesta',
+        'user_id'
+    ];
 
     public function cartas()
     {

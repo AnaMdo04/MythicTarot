@@ -14,6 +14,7 @@ class CreateCartasTable extends Migration
             $table->text('descripcion')->nullable();
             $table->string('imagen_url', 255)->nullable();
             $table->foreignId('disenio_id')->constrained('disenios');
+            $table->boolean('al_reves')->default(false);
             $table->timestamps();
         });
     }
