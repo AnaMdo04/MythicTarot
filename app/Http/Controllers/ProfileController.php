@@ -51,7 +51,7 @@ class ProfileController extends Controller
             }
 
             Log::info('Guardando los cambios del perfil');
-            $user->save();
+            $user->User::save();
 
             Log::info('Perfil actualizado correctamente');
             return redirect()->route('perfil.edit')->with('success', 'Perfil actualizado correctamente.');
@@ -68,7 +68,7 @@ class ProfileController extends Controller
         if ($user->profile_image) {
             Storage::delete('public/' . $user->profile_image);
             $user->profile_image = null;
-            $user->save();
+            $user->Usser::save();
 
             return redirect()->route('perfil.edit')->with('success', 'Foto de perfil eliminada correctamente.');
         }
