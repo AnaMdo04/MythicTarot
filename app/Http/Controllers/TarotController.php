@@ -31,17 +31,19 @@ class TarotController extends Controller
         $user = Auth::user();
         $pregunta = session('pregunta');
         $tipoTirada = $request->input('tipo_tirada');
-    
+
         $numCartas = $this->getNumeroCartasPorTirada($tipoTirada);
-    
+
         $cartas = Carta::inRandomOrder()->take($numCartas)->get();
-    
+
         $lectura = Lectura::create([
             'fecha_lectura' => now(),
             'pregunta' => $pregunta,
             'user_id' => $user->id,
             'tipo_tirada' => $tipoTirada,
         ]);
+
+        $cartas = $cartas->shuffle();
 
         foreach ($cartas as $index => $carta) {
             $lectura->cartas()->attach($carta->id, [
