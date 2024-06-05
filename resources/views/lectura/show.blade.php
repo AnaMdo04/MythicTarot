@@ -33,11 +33,14 @@
                     <div class="row">
                         @foreach ($lectura->cartas as $carta)
                             <div class="col-md-4">
-                                <div class="card mb-3">
+                                <div class="card mb-3 {{ $carta->pivot->al_reves ? 'al-reves' : '' }}">
                                     <img src="{{ asset('storage/' . $carta->imagen_url) }}" class="card-img-top" alt="{{ $carta->nombre_carta }}">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $carta->nombre_carta }}</h5>
                                         <p class="card-text">{{ $carta->descripcion }}</p>
+                                        @if($carta->pivot->al_reves)
+                                            <p class="text-danger">Esta carta está al revés</p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

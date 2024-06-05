@@ -31,26 +31,29 @@ class TarotController extends Controller
         $user = Auth::user();
         $pregunta = session('pregunta');
         $tipoTirada = $request->input('tipo_tirada');
-
+    
         $numCartas = $this->getNumeroCartasPorTirada($tipoTirada);
-
+    
         $cartas = Carta::inRandomOrder()->take($numCartas)->get();
-
-        // Asignar posición y orientación
-        foreach ($cartas as $index => $carta) {
-            $carta->posicion = $index + 1;
-            $carta->al_reves = rand(0, 1) == 1; // 50% de probabilidad de estar al revés
-        }
-
+    
         $lectura = Lectura::create([
             'fecha_lectura' => now(),
             'pregunta' => $pregunta,
             'user_id' => $user->id,
+            'tipo_tirada' => $tipoTirada,
         ]);
 
-        $lectura->cartas()->attach($cartas->pluck('id')->toArray());
-
-        return view('tarot.resultado', compact('lectura', 'cartas', 'pregunta', 'tipoTirada'));
+        foreach ($cartas as $index => $carta) {
+            $lectura->cartas()->attach($carta->id, [
+                'posicion' => $index + 1,
+                'al_reves' => (bool)random_int(0, 1)
+            ]);
+        }
+    
+        $cartas = $lectura->cartas()->get();
+        $tipoTiradaDesc = $this->getTipoTiradaDescription($tipoTirada);
+    
+        return view('tarot.resultado', compact('lectura', 'cartas', 'pregunta', 'tipoTiradaDesc'));
     }
 
     private function getNumeroCartasPorTirada($tipoTirada)
@@ -60,11 +63,31 @@ class TarotController extends Controller
                 return 3;
             case 'cruz':
                 return 5;
-            case 'celtica':
-                return 10;
+            case 'pentaculo':
+                return 6;
             default:
                 return 3;
         }
+    }
+
+    private function getTipoTiradaDescription($tipoTirada)
+    {
+        $descriptions = [
+            'simple' => [
+                'title' => 'Tirada Simple (3 cartas)',
+                'description' => 'Primera carta: pasado<br>Segunda carta: presente<br>Tercera carta: futuro',
+            ],
+            'cruz' => [
+                'title' => 'Tirada Cruz (5 cartas)',
+                'description' => 'Primera carta: situación actual<br>Segunda carta: desafíos<br>Tercera carta: pasado<br>Cuarta carta: futuro<br>Quinta carta: potencial',
+            ],
+            'pentaculo' => [
+                'title' => 'Tirada del Pentáculo (6 cartas)',
+                'description' => 'Primera carta: causa<br>Segunda carta: efecto<br>Tercera carta: consecuencia<br>Cuarta carta: solución<br>Quinta carta: obstáculo<br>Sexta carta: resultado',
+            ],
+        ];
+
+        return $descriptions[$tipoTirada] ?? $descriptions['simple'];
     }
 
     public function guardarComentario(Request $request, $lectura_id)
@@ -89,8 +112,9 @@ class TarotController extends Controller
         $lectura = Lectura::with('cartas', 'comentarios.user')->findOrFail($id);
         $cartas = $lectura->cartas;
         $pregunta = $lectura->pregunta;
+        $tipoTiradaDesc = $this->getTipoTiradaDescription($lectura->tipo_tirada);
 
-        return view('tarot.resultado', compact('lectura', 'cartas', 'pregunta'));
+        return view('tarot.resultado', compact('lectura', 'cartas', 'pregunta', 'tipoTiradaDesc'));
     }
 
     public function updateComentario(Request $request, $comentario_id)

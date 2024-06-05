@@ -23,7 +23,6 @@
     </form>
 </div>
 
-<!-- Modal -->
 <div class="modal fade" id="tiradasModal" tabindex="-1" aria-labelledby="tiradasModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

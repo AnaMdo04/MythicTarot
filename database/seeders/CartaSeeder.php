@@ -1,15 +1,22 @@
 <?php
-
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Carta;
 use App\Models\Disenio;
+use App\Models\User;
 
 class CartaSeeder extends Seeder
 {
     public function run()
     {
+        $users = User::all();
+
+        if ($users->isEmpty()) {
+            $this->command->info('No users found. Skipping CartaSeeder.');
+            return;
+        }
+
         $cartas = [
             // Arcanos Mayores
             ['nombre_carta' => 'El Loco', 'descripcion' => 'Descripción de El Loco'],
@@ -98,12 +105,14 @@ class CartaSeeder extends Seeder
 
         foreach ($cartas as $cartaData) {
             $disenio = Disenio::inRandomOrder()->first();
+            $user = $users->random();
             if ($disenio) {
                 Carta::create([
                     'nombre_carta' => $cartaData['nombre_carta'],
                     'descripcion' => $cartaData['descripcion'],
                     'imagen_url' => fake()->imageUrl(),
                     'disenio_id' => $disenio->id,
+                    'user_id' => $user->id,
                 ]);
             }
         }

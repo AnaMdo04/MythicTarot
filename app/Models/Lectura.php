@@ -9,16 +9,12 @@ class Lectura extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'fecha_lectura',
-        'pregunta',
-        'respuesta',
-        'user_id'
-    ];
+    protected $fillable = ['fecha_lectura', 'pregunta', 'user_id', 'tipo_tirada'];
 
     public function cartas()
     {
-        return $this->belongsToMany(Carta::class, 'lectura_has_carta');
+        return $this->belongsToMany(Carta::class, 'lectura_has_carta')
+                    ->withPivot('posicion', 'al_reves');
     }
 
     public function comentarios()
