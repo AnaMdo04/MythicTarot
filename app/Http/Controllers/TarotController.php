@@ -15,21 +15,19 @@ class TarotController extends Controller
         return view('tarot.index');
     }
 
-    public function preguntar()
+    public function preguntar(Request $request)
     {
-        return view('tarot.preguntar');
-    }
+        if ($request->isMethod('post') && $request->has('tipo_tirada')) {
+            return $this->realizarTirada($request);
+        }
 
-    public function seleccionarTirada(Request $request)
-    {
-        $request->session()->put('pregunta', $request->input('pregunta'));
-        return view('tarot.seleccionar_tirada');
+        return view('tarot.preguntar');
     }
 
     public function realizarTirada(Request $request)
     {
         $user = Auth::user();
-        $pregunta = session('pregunta');
+        $pregunta = $request->input('pregunta');
         $tipoTirada = $request->input('tipo_tirada');
 
         $numCartas = $this->getNumeroCartasPorTirada($tipoTirada);
@@ -51,10 +49,10 @@ class TarotController extends Controller
                 'al_reves' => (bool)random_int(0, 1)
             ]);
         }
-    
+
         $cartas = $lectura->cartas()->get();
         $tipoTiradaDesc = $this->getTipoTiradaDescription($tipoTirada);
-    
+
         return view('tarot.resultado', compact('lectura', 'cartas', 'pregunta', 'tipoTiradaDesc'));
     }
 
@@ -132,5 +130,10 @@ class TarotController extends Controller
         $comentario->save();
 
         return back()->with('success', 'Comentario actualizado correctamente.');
+    }
+
+    public function cartas()
+    {
+        return view('tarot.cartas');
     }
 }

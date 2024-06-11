@@ -33,12 +33,12 @@ Route::controller(LoginRegisterController::class)->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/tarot', [TarotController::class, 'index'])->name('tarot');
-    Route::get('/tarot/preguntar', [TarotController::class, 'preguntar'])->name('tarot.preguntar');
-    Route::post('/tarot/seleccionar-tirada', [TarotController::class, 'seleccionarTirada'])->name('tarot.seleccionar_tirada');
+    Route::match(['get', 'post'], '/tarot/preguntar', [TarotController::class, 'preguntar'])->name('tarot.preguntar');
     Route::post('/tarot/realizar-tirada', [TarotController::class, 'realizarTirada'])->name('tarot.realizar_tirada');
     Route::post('/tarot/guardar-comentario/{lectura_id}', [TarotController::class, 'guardarComentario'])->name('tarot.guardarComentario');
     Route::put('/lectura/updateComentario/{comentario_id}', [TarotController::class, 'updateComentario'])->name('tarot.updateComentario');
     Route::get('/tarot/resultado/{id}', [TarotController::class, 'resultado'])->name('tarot.resultado');
+    Route::get('/tarot/cartas', [TarotController::class, 'cartas'])->name('tarot.cartas');
 
     Route::get('/perfil', [ProfileController::class, 'index'])->name('perfil');
     Route::get('/perfil/editar', [ProfileController::class, 'edit'])->name('perfil.edit');

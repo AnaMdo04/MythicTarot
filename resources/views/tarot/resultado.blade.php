@@ -1,15 +1,29 @@
-@extends('auth.layouts')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tarot - MythicTarot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css/resultado.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Shrikhand&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+    </style>
+</head>
+<body>
+    <a href="{{ route('welcome') }}" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
 
-@section('title', 'Resultado de la Tirada - MythicTarot')
-
-@section('content')
 <div class="container">
     <h1>Resultado de la Tirada</h1>
     <p><strong>Pregunta:</strong> {{ $pregunta }}</p>
-    <p><strong>Fecha de la Lectura:</strong> {{ $lectura->fecha_lectura }}</p>
-    <a href="#" data-bs-toggle="modal" data-bs-target="#tiradasModal" class="text-info">
+    <button type="button" data-bs-toggle="modal" data-bs-target="#tiradasModal" class="info-button">
         <i class="fas fa-info-circle"></i>
-    </a>
+    </button>
 
     <div class="row">
         @foreach($cartas as $carta)
@@ -91,4 +105,9 @@
         document.getElementById('editComentarioForm').style.display = 'none';
     });
 </script>
-@endsection
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+</html>

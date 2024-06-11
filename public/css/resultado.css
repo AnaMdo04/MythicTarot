@@ -1,0 +1,151 @@
+.card.al-reves {
+    transform: rotate(180deg);
+}
+body {
+    background-image: url("fondo_tarot.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+body,
+html {
+    font-family: "League Spartan", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Shrikhand", serif;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.btn-primary {
+    background-color: #6c757d;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border-color: #5a6268;
+    --bs-btn-active-bg: #5a6268;
+}
+
+.btn-primary:hover {
+    background-color: #5a6268;
+}
+
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: white;
+}
+
+.back-button:hover {
+    color: #ccc;
+}
+
+.info-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.info-button:hover {
+    color: #ccc;
+}
+
+select {
+    text-align: center;
+}
+
+.modal-content {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    border-radius: 10px;
+}
+
+.modal-header,
+.modal-footer {
+    border: none;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.modal-body p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    text-shadow: none;
+    color: #ddd;
+}
+
+.modal-body h5 {
+    font-size: 1.3rem;
+    margin-top: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.btn-close {
+    color: white;
+    opacity: 1;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-footer .btn {
+    margin-left: 10px;
+    width: auto;
+}
