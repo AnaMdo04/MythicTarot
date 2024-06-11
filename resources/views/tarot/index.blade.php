@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Shrikhand&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
     </style>
 </head>
 <body>
@@ -20,7 +19,7 @@
     
     <div class="container">
         <h1>¡Bienvenido al Tarot!</h1>
-        <p>Resuelva todas sus dudas y preguntas con una simple pregunta a nuestro tarot.</p>
+        <p>Descubre respuestas profundas a tus preguntas con una simple tirada de tarot.</p>
         <a href="{{ route('tarot.preguntar') }}" class="btn btn-primary">Obtener Lectura</a>
         <button type="button" data-bs-toggle="modal" data-bs-target="#tiradasModal" class="info-button">
             <i class="fas fa-info-circle"></i>
@@ -36,11 +35,11 @@
                 </div>
                 <div class="modal-body">
                     <h5>¿Qué es el Tarot?</h5>
-                    <p>El Tarot es un sistema de adivinación que utiliza una baraja de cartas para obtener información y guía sobre diferentes aspectos de la vida. Cada carta del tarot tiene un significado específico, y al ser combinadas en una tirada, pueden proporcionar una visión profunda y reveladora sobre el pasado, presente y futuro.</p>
+                    <p>El Tarot es un sistema ancestral de adivinación que utiliza una baraja de cartas especiales para ofrecer guía y revelaciones sobre distintos aspectos de la vida. Cada carta del Tarot tiene un simbolismo único, y cuando se disponen en una tirada, revelan información valiosa sobre el pasado, presente y futuro.</p>
                     <h5>Historia del Tarot</h5>
-                    <p>El origen del Tarot se remonta al siglo XV en Europa, aunque algunos creen que tiene raíces más antiguas en Egipto o India. Originalmente utilizado como un juego de cartas, el Tarot fue adoptado más tarde por los místicos y ocultistas como una herramienta de adivinación y autoconocimiento.</p>
-                    <h5>¿Cómo funciona una lectura de Tarot?</h5>
-                    <p>En una lectura de Tarot, el lector baraja las cartas y las dispone en un patrón específico llamado "tirada". Cada posición en la tirada representa un aspecto diferente de la pregunta o situación del consultante. El lector interpreta las cartas en función de sus posiciones y combinaciones, ofreciendo una perspectiva y orientación basadas en los significados tradicionales de las cartas.</p>
+                    <p>El Tarot tiene una rica historia que data del siglo XV en Europa. Aunque comenzó como un juego de cartas, fue adoptado por místicos y ocultistas como una poderosa herramienta de adivinación y autoconocimiento. Su uso ha evolucionado, y hoy en día, el Tarot es apreciado por su capacidad para brindar claridad y orientación.</p>
+                    <h5>¿Cómo funcionan las lecturas de Tarot en MythicTarot?</h5>
+                    <p>En MythicTarot, nuestras lecturas de Tarot son totalmente automatizadas y digitales. Al realizar una lectura, nuestro sistema baraja las cartas y las dispone en una tirada específica según el tipo de tirada que elijas. Cada posición en la tirada representa un aspecto diferente de tu pregunta o situación. Nuestro sistema interpreta las cartas y sus posiciones, proporcionando una perspectiva y guía detalladas basadas en los significados tradicionales de las cartas.</p>
                 </div>
                 <div class="modal-footer">
                     <a href="{{ route('tarot.cartas') }}" class="btn btn-secondary center-button">Ver todas las cartas</a>
