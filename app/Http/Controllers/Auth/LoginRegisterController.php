@@ -10,13 +10,16 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class LoginRegisterController extends Controller
 {
     public function __construct()
     {
         $this->middleware('guest')->except([
-            'logout', 'dashboard', 'tienda', 'aboutUs', 'tarot', 'faqs', 'terms', 'cookies', 'contact', 'allComments', 'index'
+            'logout', 'dashboard', 'tienda', 'aboutUs', 'tarot', 'faqs', 'terms', 'cookies', 'contact', 'allComments', 'index', 'updateProfile', 'deleteProfileImage'
         ]);
     }
 
@@ -66,6 +69,11 @@ class LoginRegisterController extends Controller
         Cart::create(['user_id' => $user->id]);
 
         Auth::login($user);
+
+        Mail::send('emails.welcome', ['name' => $user->name], function ($message) use ($user) {
+            $message->to($user->email, $user->name)->subject('Bienvenido a MythicTarot');
+        });
+
         return redirect()->route('welcome')->with('success', '¡Registrado e iniciado sesión correctamente!');
     }
 
@@ -90,7 +98,7 @@ class LoginRegisterController extends Controller
             }
 
             $intendedUrl = session('intended_url', '/');
-            return redirect()->intended($intendedUrl)->with('success', '¡Iniciado sesión correctamente');
+            return redirect()->intended($intendedUrl)->with('success', '¡Iniciado sesión correctamente!');
         }
 
         return back()->withErrors(['email' => 'Las credenciales proporcionadas no son correctas.']);
@@ -158,5 +166,62 @@ class LoginRegisterController extends Controller
             session(['intended_url' => url()->current()]);
             return redirect('login')->with('error', 'Necesitas iniciar sesión para acceder a esta página.');
         }
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $user = Auth::user();
+        $validatedData = $request->validate([
+            'name' => 'nullable|string|max:250',
+            'password' => 'nullable|min:8|confirmed',
+            'profile_image' => 'nullable|image|max:2048'
+        ]);
+
+        $updateFields = [];
+        if ($request->filled('name')) {
+            $updateFields['name'] = $validatedData['name'];
+        }
+
+        if ($request->hasFile('profile_image')) {
+            if ($user->profile_image) {
+                Log::info('Eliminando imagen de perfil anterior: ' . $user->profile_image);
+                Storage::delete('public/' . $user->profile_image);
+            }
+
+            $path = $request->file('profile_image')->store('profile_images', 'public');
+            $updateFields['profile_image'] = $path;
+        }
+
+        $passwordChanged = false;
+        if ($request->filled('password')) {
+            Log::info('Actualizando contraseña del usuario');
+            $updateFields['password'] = Hash::make($validatedData['password']);
+            $passwordChanged = true;
+        }
+
+        $user->update($updateFields);
+
+        if ($passwordChanged) {
+            Mail::send('emails.password_changed', ['name' => $user->name], function ($message) use ($user) {
+                $message->to($user->email, $user->name)->subject('Cambio de Contraseña');
+            });
+        }
+
+        Log::info('Perfil actualizado correctamente');
+        return redirect()->route('perfil.edit')->with('success', 'Perfil actualizado correctamente.');
+    }
+
+    public function deleteProfileImage()
+    {
+        $user = Auth::user();
+
+        if ($user->profile_image) {
+            Log::info('Eliminando imagen de perfil anterior: ' . $user->profile_image);
+            Storage::delete('public/' . $user->profile_image);
+            $user->profile_image = null;
+            $user->User::save();
+        }
+
+        return redirect()->route('perfil.edit')->with('success', 'Foto de perfil eliminada correctamente.');
     }
 }

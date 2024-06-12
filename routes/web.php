@@ -42,8 +42,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/perfil', [ProfileController::class, 'index'])->name('perfil');
     Route::get('/perfil/editar', [ProfileController::class, 'edit'])->name('perfil.edit');
-    Route::put('/perfil', [ProfileController::class, 'update'])->name('perfil.update');
-    Route::delete('/perfil/foto', [ProfileController::class, 'deleteProfileImage'])->name('perfil.deleteProfileImage');
+    Route::put('/perfil', [LoginRegisterController::class, 'updateProfile'])->name('perfil.update');
+    Route::delete('/perfil/foto', [LoginRegisterController::class, 'deleteProfileImage'])->name('perfil.deleteProfileImage');
     Route::get('/ajustes', [ProfileController::class, 'edit'])->name('ajustes');
 
     Route::get('/lecturas', [LecturaController::class, 'index'])->name('lecturas');

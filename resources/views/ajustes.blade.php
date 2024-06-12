@@ -10,27 +10,6 @@
                 <div class="card-header">Ajustes de Configuración</div>
 
                 <div class="card-body">
-                    @if (session('success'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-
-                    @if (session('error'))
-                        <div class="alert alert-danger" role="alert">
-                            {{ session('error') }}
-                        </div>
-                    @endif
-
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
 
                     <form method="POST" action="{{ route('perfil.update') }}" enctype="multipart/form-data">
                         @csrf
@@ -39,21 +18,11 @@
                         <div class="form-group">
                             <label for="name">Nombre de Usuario</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', Auth::user()->name) }}">
-                            @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="password">Nueva Contraseña</label>
                             <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password">
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
                         </div>
 
                         <div class="form-group">
@@ -68,11 +37,6 @@
                                 <label for="profile_image" class="custom-file-label">Seleccionar archivo</label>
                                 <span id="file-name" class="file-name">Ningún archivo seleccionado</span>
                             </div>
-                            @error('profile_image')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
                         </div>
 
                         <button type="submit" class="btn btn-primary mt-3">Guardar Cambios</button>

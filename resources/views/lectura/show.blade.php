@@ -10,21 +10,6 @@
                 <div class="card-header">Detalle de la Lectura</div>
 
                 <div class="card-body">
-                    @if (session('success'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('success') }}
-                    </div>
-                    @endif
-
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
 
                     <h5 class="card-title">Fecha y Hora de la Lectura: {{ $lectura->fecha_lectura }}</h5>
                     <p><strong>Pregunta:</strong> {{ $lectura->pregunta }}</p>
@@ -68,11 +53,6 @@
                         <div class="form-group">
                             <label for="texto">Añadir Comentario</label>
                             <textarea class="form-control @error('texto') is-invalid @enderror" id="texto" name="texto" rows="3"></textarea>
-                            @error('texto')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
                         </div>
                         <button type="submit" class="btn btn-primary mt-3">Guardar Comentario</button>
                     </form>
@@ -84,11 +64,6 @@
                             <div class="form-group">
                                 <label for="texto">Editar Comentario</label>
                                 <textarea class="form-control @error('texto') is-invalid @enderror" id="texto" name="texto" rows="3">{{ old('texto', $lectura->comentarios->first()->texto ?? '') }}</textarea>
-                                @error('texto')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
                             </div>
                             <button type="submit" class="btn btn-primary mt-3">Guardar Cambios</button>
                         </form>
