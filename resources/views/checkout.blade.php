@@ -9,7 +9,7 @@
 <div class="container">
     <h1>Checkout</h1>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 resumen">
             <h4>Resumen del Pedido</h4>
             <ul class="list-group">
                 @foreach ($carritoItems as $item)
@@ -21,13 +21,25 @@
             </ul>
             <h4 class="mt-3">Total: ${{ number_format($total, 2) }}</h4>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 compra">
             <form id="payment-form">
                 <div class="form-group">
-                    <label for="card-element">Información de la Tarjeta</label>
-                    <div id="card-element"></div>
-                    <div id="card-errors" role="alert"></div>
+                    <label for="card-number">Número de Tarjeta</label>
+                    <div id="card-number"></div>
                 </div>
+                <div class="form-group">
+                    <label for="card-expiry">Fecha de Expiración</label>
+                    <div id="card-expiry"></div>
+                </div>
+                <div class="form-group">
+                    <label for="card-cvc">CVC</label>
+                    <div id="card-cvc"></div>
+                </div>
+                <div class="form-group">
+                    <label for="postal-code">Código Postal</label>
+                    <input type="text" id="postal-code" class="form-control" placeholder="Código Postal" >
+                </div>
+                <div id="card-errors" role="alert"></div>
                 <button type="submit" class="btn btn-primary">Pagar</button>
             </form>
         </div>
@@ -37,15 +49,51 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const stripe = Stripe("{{ env('STRIPE_KEY') }}");
-        const elements = stripe.elements();
-        const cardElement = elements.create('card');
-        cardElement.mount('#card-element');
+        const elements = stripe.elements({
+            fonts: [
+                {
+                    cssSrc: 'https://fonts.googleapis.com/css2?family=YourCustomFont:wght@400;700&display=swap',
+                },
+            ],
+        });
+
+        const style = {
+            base: {
+                fontFamily: 'YourCustomFont, sans-serif',
+                fontSize: '16px',
+                color: '#32325d',
+                '::placeholder': {
+                    color: '#aab7c4'
+                },
+            },
+            invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+            }
+        };
+
+        const cardNumber = elements.create('cardNumber', { style: style });
+        cardNumber.mount('#card-number');
+
+        const cardExpiry = elements.create('cardExpiry', { style: style });
+        cardExpiry.mount('#card-expiry');
+
+        const cardCvc = elements.create('cardCvc', { style: style });
+        cardCvc.mount('#card-cvc');
 
         const form = document.getElementById('payment-form');
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
 
-            const { paymentMethod, error } = await stripe.createPaymentMethod('card', cardElement);
+            const { paymentMethod, error } = await stripe.createPaymentMethod({
+                type: 'card',
+                card: cardNumber,
+                billing_details: {
+                    address: {
+                        postal_code: document.getElementById('postal-code').value
+                    }
+                }
+            });
 
             if (error) {
                 const errorElement = document.getElementById('card-errors');
