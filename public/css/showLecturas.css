@@ -1,0 +1,31 @@
+input[type="text"] {
+    width: 100%;
+    padding: 6px;
+    border-radius: 5px;
+    background-color: #f0dcd3;
+}
+
+.buscar {
+    background-color: #f0dcd3;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    color: #ffffff;
+    display: block;
+    width: auto;
+    border: none;
+    border-bottom-left-radius: 0%;
+    border-top-left-radius: 0%;
+    --bs-btn-hover-bg: #f0dcd3;
+    --bs-btn-active-bg: #f0dcd3;
+    --bs-btn-hover-border-color: #f0dcd3;
+    --bs-btn-active-border-color: #f0dcd3;
+}
+
+.buscar:hover {
+    background-color: #f0dcd3;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}

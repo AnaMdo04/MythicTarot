@@ -6,12 +6,30 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Lectura;
 use App\Models\Comentario;
+use App\Models\Carta;
 
 class LecturaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $lecturas = Lectura::where('user_id', Auth::id())->get();
+        $query = Lectura::with(['cartas', 'comentarios'])->where('user_id', Auth::id());
+
+        // Filtrar por pregunta, comentario y nombre de las cartas
+        if ($request->has('search') && !empty($request->search)) {
+            $search = $request->search;
+            $query->where(function ($query) use ($search) {
+                $query->where('pregunta', 'like', '%' . $search . '%')
+                    ->orWhereHas('comentarios', function ($q) use ($search) {
+                        $q->where('texto', 'like', '%' . $search . '%');
+                    })
+                    ->orWhereHas('cartas', function ($q) use ($search) {
+                        $q->where('nombre_carta', 'like', '%' . $search . '%');
+                    });
+            });
+        }
+
+        $lecturas = $query->simplePaginate(10);
+
         return view('lecturas', compact('lecturas'));
     }
 

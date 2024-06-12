@@ -181,3 +181,24 @@ button:not(:disabled) {
     margin-left: 10px;
     margin-top: 10px;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.bg-white {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #254d59 !important;
+    background-color: #377081 !important;
+}
+
+.bg-white:hover {
+    color: white !important;
+    background-color: #254d59 !important;
+}
