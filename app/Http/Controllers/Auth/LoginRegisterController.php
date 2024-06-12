@@ -66,7 +66,7 @@ class LoginRegisterController extends Controller
         Cart::create(['user_id' => $user->id]);
 
         Auth::login($user);
-        return redirect()->route('welcome')->with('success', 'Registered and logged in successfully!');
+        return redirect()->route('welcome')->with('success', '¡Registrado e iniciado sesión correctamente!');
     }
 
     public function login()
@@ -90,10 +90,10 @@ class LoginRegisterController extends Controller
             }
 
             $intendedUrl = session('intended_url', '/');
-            return redirect()->intended($intendedUrl)->with('success', 'Logged in successfully');
+            return redirect()->intended($intendedUrl)->with('success', '¡Iniciado sesión correctamente');
         }
 
-        return back()->withErrors(['email' => 'The provided credentials do not match our records.']);
+        return back()->withErrors(['email' => 'Las credenciales proporcionadas no son correctas.']);
     }
 
     public function dashboard()
@@ -106,7 +106,7 @@ class LoginRegisterController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login')->with('success', 'You have been logged out!');
+        return redirect('/login')->with('success', '¡Has cerrado sesión!');
     }
 
     public function tienda()
@@ -156,7 +156,7 @@ class LoginRegisterController extends Controller
             return view('tarot.index');
         } else {
             session(['intended_url' => url()->current()]);
-            return redirect('login')->with('error', 'You need to log in to access this page.');
+            return redirect('login')->with('error', 'Necesitas iniciar sesión para acceder a esta página.');
         }
     }
 }

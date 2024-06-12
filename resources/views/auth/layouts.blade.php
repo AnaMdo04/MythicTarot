@@ -51,6 +51,11 @@
                         <a class="nav-link register {{ Route::currentRouteName() == 'register' ? 'active' : '' }}" href="{{ route('register') }}">Registrarse</a>
                     </li>
                     @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('cart.index') }}">
+                            <i class="fas fa-shopping-cart fa-lg"></i>
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link login dropdown-toggle login_user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
