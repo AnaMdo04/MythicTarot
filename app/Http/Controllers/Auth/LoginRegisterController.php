@@ -31,10 +31,13 @@ class LoginRegisterController extends Controller
         $cartas = Carta::all();
         $commentsQuery = Comentario::with(['user', 'lectura.cartas']);
 
-        if ($request->has('cartas')) {
-            $commentsQuery->whereHas('lectura.cartas', function ($query) use ($request) {
-                $query->whereIn('cartas.id', $request->input('cartas'));
-            });
+        if ($request->has('cartas') && !empty($request->input('cartas'))) {
+            $selectedCartas = $request->input('cartas');
+            foreach ($selectedCartas as $cartaId) {
+                $commentsQuery->whereHas('lectura.cartas', function ($query) use ($cartaId) {
+                    $query->where('cartas.id', $cartaId);
+                });
+            }
         }
 
         $comments = $commentsQuery->simplePaginate(10);
