@@ -4,9 +4,20 @@
 
 @section('content')
 <link href="{{ asset('css/tienda.css') }}" rel="stylesheet">
+<link href="{{ asset('css/showLecturas.css') }}" rel="stylesheet">
 
 <div class="container">
     <h1 class="my-4">Tienda</h1>
+
+    <form method="GET" action="{{ route('tienda.index') }}" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="search" class="form-control" placeholder="Buscar por nombre de diseño" value="{{ request('search') }}">
+            <div class="input-group-append">
+                <button type="submit" class="btn buscar">Buscar</button>
+            </div>
+        </div>
+    </form>
+
     <div class="row">
         @foreach($disenios as $disenio)
             <div class="col-lg-4 col-md-6 mb-4">
@@ -25,7 +36,7 @@
         @endforeach
     </div>
     <div class="pagination-container">
-        {{ $disenios->links() }}
+        {{ $disenios->appends(request()->query())->links() }}
     </div>
 </div>
 @endsection

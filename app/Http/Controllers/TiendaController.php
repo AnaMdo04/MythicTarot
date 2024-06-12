@@ -10,9 +10,17 @@ use Illuminate\Support\Facades\Auth;
 
 class TiendaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $disenios = Disenio::Simplepaginate(9);
+        $query = Disenio::query();
+
+        if ($request->has('search') && !empty($request->search)) {
+            $search = $request->search;
+            $query->where('nombre_disenio', 'like', '%' . $search . '%');
+        }
+
+        $disenios = $query->simplePaginate(9);
+
         return view('tienda.index', compact('disenios'));
     }
 
