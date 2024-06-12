@@ -21,14 +21,13 @@ class CartController extends Controller
     {
         $user = Auth::user();
         $cart = Cart::firstOrCreate(['user_id' => $user->id]);
-        $item = $cart->items()->firstOrCreate(
-            ['disenio_id' => $id],
-            ['cantidad' => 1]
-        );
 
-        if (!$item->wasRecentlyCreated) {
-            $item->increment('cantidad');
+        $item = $cart->items()->where('disenio_id', $id)->first();
+        if ($item) {
+            return redirect()->route('cart.index')->with('error', 'Este diseño ya está en tu carrito.');
         }
+
+        $cart->items()->create(['disenio_id' => $id, 'cantidad' => 1]);
 
         return redirect()->route('cart.index')->with('success', 'Artículo añadido al carrito.');
     }
