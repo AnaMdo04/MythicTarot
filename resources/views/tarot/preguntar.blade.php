@@ -48,8 +48,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="tiradasModalLabel">Tipos de Tiradas</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+            </div>
                 <div class="modal-body">
                     <h5>Tirada Simple (3 cartas)</h5>
                     <p>Primera carta: pasado<br>Segunda carta: presente<br>Tercera carta: futuro</p>

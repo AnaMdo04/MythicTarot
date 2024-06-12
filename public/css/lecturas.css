@@ -68,6 +68,11 @@ input[type="file"]:focus {
     box-shadow: 0 2px 4px #8e7c74;
     color: #ffffff;
     display: block;
+    --bs-btn-hover-bg: #254d59;
+    --bs-btn-active-bg: #254d59;
+    --bs-btn-border-color: #254d59;
+    --bs-btn-hover-border-color: #254d59;
+    --bs-btn-active-border-color: #254d59;
     width: auto;
 }
 

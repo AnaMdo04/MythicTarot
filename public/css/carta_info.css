@@ -1,0 +1,69 @@
+body {
+    background-color: #f8f9fa;
+    font-family: "League Spartan", sans-serif;
+    color: #343a40;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: "Shrikhand", cursive;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    color: #343a40;
+}
+
+p {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    color: #343a40;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.mt-5 {
+    margin-top: 3rem;
+}
+
+.btn-secondary {
+    margin: 5px;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+.dropdown-menu {
+    background-color: #f8f9fa;
+    border: 1px solid #343a40;
+}
+
+.dropdown-item {
+    color: #343a40;
+}
+
+.dropdown-item:hover {
+    background-color: #343a40;
+    color: #ffffff;
+}
