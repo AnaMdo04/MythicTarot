@@ -54,7 +54,7 @@
                                 <div class="card-body">
                                     <p class="card-text">{{ $comentario->texto }}</p>
                                     <p class="card-text"><small class="text-muted">{{ $comentario->fecha_comentario }}</small></p>
-                                    <button class="btn btn-link p-0" onclick="toggleEditForm()">Editar Comentario</button>
+                                    <button class="btn p-0" onclick="toggleEditForm()">Editar Comentario</button>
                                 </div>
                             </div>
                         @endforeach
