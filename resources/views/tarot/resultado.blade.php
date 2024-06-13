@@ -67,15 +67,19 @@
                 </form>
             </div>
 
-            <div class="col-md-6 cartas-container">
-                <div class="row">
-                    @foreach($cartas as $carta)
-                    <div class="col-md-12 mb-3">
-                        <div class="card clickable-card {{ $carta->pivot->al_reves ? 'al-reves' : '' }}" onclick="mostrarCarta('{{ $carta->nombre_carta }}', '{{ $carta->imagen_url }}', '{{ $carta->pivot->al_reves }}', '{{ $carta->pivot->al_reves ? $carta->descripcion_reves : $carta->descripcion_derecho }}')">
-                            <img src="{{ asset('cartas/' . $carta->imagen_url) }}" alt="{{ $carta->nombre_carta }}" class="card-img-top">
+            <div class="col-md-6 cartas-container position-relative">
+                <div class="row justify-content-center">
+                    @foreach($cartas as $index => $carta)
+                        <div class="col-md-3 mb-3">
+                            <div class="card clickable-card {{ $carta->pivot->al_reves ? 'al-reves' : '' }}" 
+                                 data-position="{{ $index + 1 }}" 
+                                 data-tipo-tirada="{{ $tipoTirada }}"
+                                 data-rotate="{{ $carta->pivot->al_reves ? '180deg' : '0deg' }}"
+                                 onclick="mostrarCarta('{{ $carta->nombre_carta }}', '{{ $carta->imagen_url }}', '{{ $carta->pivot->al_reves }}', '{{ $carta->pivot->al_reves ? $carta->descripcion_reves : $carta->descripcion_derecho }}')">
+                                <img src="{{ asset('cartas/' . $carta->imagen_url) }}" alt="{{ $carta->nombre_carta }}" class="card-img-top">
+                            </div>
                         </div>
-                    </div>
-                @endforeach                
+                    @endforeach                
                 </div>
             </div>
         </div>
@@ -139,10 +143,62 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('editComentarioForm').style.display = 'none';
+            const delay = 2000;
+            setTimeout(() => {
+                const cards = document.querySelectorAll('.card.clickable-card');
+                cards.forEach((card, index) => {
+                    const tipoTirada = card.dataset.tipoTirada;
+                    const position = card.dataset.position;
+                    const offsets = getCardOffsets(tipoTirada, position);
+                    const rotate = card.dataset.rotate;
+                    card.style.setProperty('--translate-x', offsets.x + 'px');
+                    card.style.setProperty('--translate-y', offsets.y + 'px');
+                    card.style.setProperty('--rotate-deg', rotate);
+                    setTimeout(() => {
+                        card.classList.add('animated');
+                    }, index * 500);
+                });
+            }, delay);
         });
-    </script>
 
+        function getCardOffsets(tipoTirada, position) {
+            const containerRect = document.querySelector('.cartas-container').getBoundingClientRect();
+            const cardRect = { width: 100, height: 150 }; 
+            const centerX = containerRect.width / 2;
+            const centerY = containerRect.height / 2;
+
+            const offsets = {
+                simple: [
+                    { x: -2 * cardRect.width - 60, y: cardRect.height / 4 + 62},
+                    { x: -cardRect.width + 40, y: cardRect.height / 4 + 62},
+                    { x: -cardRect.width -60, y: cardRect.height / 8 + 82}
+                ],
+                cruz: [
+                    { x: -cardRect.width -60, y: -cardRect.height / 4 - 16},
+                    { x: -2 * cardRect.width - 60, y: cardRect.height / 4 + 62},
+                    { x: -cardRect.width -60, y: cardRect.height + 106},
+                    { x: -cardRect.width + 40, y: cardRect.height / 4 + 62},
+                    { x: -cardRect.width -60, y: cardRect.height / 8 + 82}
+                ],
+                pentaculo: [
+                    { x: -cardRect.width - 20, y: cardRect.height  / 16 - 20},
+                    { x: -2.5 * cardRect.width - 40, y: -cardRect.height / 6 + 80},
+                    { x: -2 * cardRect.width - 40, y: cardRect.height + 80},
+                    { x: cardRect.width / 2 - 40, y: cardRect.height + 80},
+                    { x: cardRect.width / 2, y: -cardRect.height / 6 + 80},
+                    { x: -cardRect.width - 20, y: cardRect.height}
+                ]
+            };
+
+            const layout = offsets[tipoTirada];
+            if (!layout) return { x: 0, y: 0 };
+
+            return {
+                x: layout[position - 1].x,
+                y: layout[position - 1].y
+            };
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>

@@ -1,6 +1,7 @@
 .card.al-reves {
     transform: rotate(180deg);
 }
+
 body {
     background-image: url("fondo_tarot.webp");
     background-size: cover;
@@ -32,9 +33,9 @@ h6 {
 
 .main-container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 2400px;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
+    padding: 60px;
     border-radius: 10px;
     margin: 0 auto;
 }
@@ -51,6 +52,7 @@ h6 {
     border-radius: 10px;
     color: white;
     max-height: 80vh;
+    position: relative;
 }
 
 .container h1 {
@@ -101,7 +103,7 @@ p {
     color: white;
 }
 
-.info-button:hover {
+info-button:hover {
     color: #ccc;
 }
 
@@ -174,9 +176,14 @@ select {
 }
 
 .card {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: transparent;
     color: white;
     border: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
 }
 
 .card-body {
@@ -224,4 +231,20 @@ select {
 
 .clickable-card {
     cursor: pointer;
+}
+
+@keyframes moveToPosition {
+    from {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    to {
+        transform: translate(var(--translate-x), var(--translate-y))
+            rotate(var(--rotate-deg));
+        opacity: 1;
+    }
+}
+
+.card.animated {
+    animation: moveToPosition 1s forwards;
 }

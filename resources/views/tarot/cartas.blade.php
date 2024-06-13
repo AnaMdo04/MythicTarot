@@ -62,7 +62,7 @@
 const arcanosMayores = [
     { name: "El Loco", img: src="{{ asset('cartas/el_loco.png') }}", right: "Nuevos comienzos, espontaneidad, libertad.", reverse: "Imprudencia, toma de riesgos sin pensar, caos." },
     { name: "El Mago", img: src="{{ asset('cartas/el_mago.png') }}", right: "Manifestación, poder, creatividad.", reverse: "Manipulación, engaño, falta de energía." },
-    { name: "La Suma Sacerdotisa", img: src="{{ asset('cartas/la_suma_sacerdotista.png') }}", right: "Intuición, sabiduría, conocimiento oculto.", reverse: "Secretos, desconexión de la intuición, información oculta." },
+    { name: "La Suma Sacerdotisa", img: src="{{ asset('cartas/la_suma_sacerdotisa.png') }}", right: "Intuición, sabiduría, conocimiento oculto.", reverse: "Secretos, desconexión de la intuición, información oculta." },
     { name: "La Emperatriz", img: src="{{ asset('cartas/la_emperatriz.png') }}", right: "Fertilidad, abundancia, naturaleza.", reverse: "Dependencia, estancamiento, falta de crecimiento." },
     { name: "El Emperador", img: src="{{ asset('cartas/el_emperador.png') }}", right: "Autoridad, estructura, control.", reverse: "Dominación, rigidez, falta de disciplina." },
     { name: "El Hierofante", img: src="{{ asset('cartas/el_hierofante.png') }}", right: "Tradición, conformidad, moralidad.", reverse: "Rebelión, subversión, nuevos enfoques." },
