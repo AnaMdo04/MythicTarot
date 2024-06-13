@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row align-items-center">
         <div class="col-md-6 login-image">
-            <img src="{{ asset('css/login.jpeg')  }}" alt="Login Image">
+            <img src="{{ asset('img/login.jpeg')  }}" alt="Login Image">
         </div>
         <div class="col-md-6">
             <div class="login-form">

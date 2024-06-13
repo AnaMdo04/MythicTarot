@@ -15,7 +15,7 @@
         <div class="col-12">
             <div class="content-block large">
                 <div class="left-image-container">
-                    <img src="{{ asset('css/nuestraMision.webp') }}" alt="Imagen Nuestra Misión" class="img-fluid">
+                    <img src="{{ asset('img/nuestraMision.webp') }}" alt="Imagen Nuestra Misión" class="img-fluid">
                 </div>
                 <div class="right-content-container">
                     <h1>Nuestra Misión</h1>
@@ -33,7 +33,7 @@
                     <p>Aspiramos a ser la plataforma líder en lecturas de tarot digital, innovando constantemente en nuestras tecnologías para ofrecer experiencias enriquecedoras que fomenten el autoconocimiento y el crecimiento personal.</p>
                 </div>
                 <div class="left-image-container">
-                    <img src="{{ asset('css/nuestraVision.webp') }}" alt="Imagen Nuestra Visión" class="img-fluid">
+                    <img src="{{ asset('img/nuestraVision.webp') }}" alt="Imagen Nuestra Visión" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="col-12">
             <div class="content-block large">
                 <div class="left-image-container">
-                    <img src="{{ asset('css/whyMythictarot.webp') }}" alt="Imagen MythicTarot" class="img-fluid">
+                    <img src="{{ asset('img/whyMythictarot.webp') }}" alt="Imagen MythicTarot" class="img-fluid">
                 </div>
                 <div class="right-content-container">
                     <h2>¿Por qué MythicTarot?</h2>
@@ -62,7 +62,7 @@
                     <p>Compuesto por expertos en tarot, desarrolladores, y artistas, nuestro equipo trabaja incansablemente para asegurar que cada experiencia en MythicTarot sea única y personal.</p>
                 </div>
                 <div class="left-image-container">
-                    <img src="{{ asset('css/nuestroEquipo.webp') }}" alt="Imagen PNuestro Equipo" class="img-fluid">
+                    <img src="{{ asset('img/nuestroEquipo.webp') }}" alt="Imagen PNuestro Equipo" class="img-fluid">
                 </div>
             </div>
         </div>

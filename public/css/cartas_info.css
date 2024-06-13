@@ -167,7 +167,7 @@ select {
 }
 
 .left-image-container {
-    flex: 1 1 30%;
+    flex: 1 1 60%;
     padding: 10px;
     overflow: hidden;
 }
@@ -175,11 +175,12 @@ select {
 .left-image-container img {
     width: 100%;
     height: auto;
+    max-width: 600px;
     border-radius: 4px;
 }
 
 .right-content-container {
-    flex: 1 1 65%;
+    flex: 1 1 40%;
     padding: 10px;
     display: flex;
     flex-direction: column;

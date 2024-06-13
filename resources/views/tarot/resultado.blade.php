@@ -70,19 +70,12 @@
             <div class="col-md-6 cartas-container">
                 <div class="row">
                     @foreach($cartas as $carta)
-                        <div class="col-md-12 mb-3">
-                            <div class="card {{ $carta->pivot->al_reves ? 'al-reves' : '' }}">
-                                <img src="{{ asset('storage/' . $carta->imagen_url) }}" alt="{{ $carta->nombre_carta }}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $carta->nombre_carta }}</h5>
-                                    <p class="card-text">{{ $carta->descripcion }}</p>
-                                    @if($carta->pivot->al_reves)
-                                        <p class="text-danger">Esta carta está al revés</p>
-                                    @endif
-                                </div>
-                            </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="card {{ $carta->pivot->al_reves ? 'al-reves' : '' }}">
+                            <img src="{{ asset('cartas/' . $carta->imagen_url) }}" alt="{{ $carta->nombre_carta }}" class="card-img-top">
                         </div>
-                    @endforeach
+                    </div>
+                @endforeach                
                 </div>
             </div>
         </div>

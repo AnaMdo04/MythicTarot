@@ -9,7 +9,7 @@
     <div class="col-12">
         <div class="content-block large">
             <div class="left-image-container">
-                <img src="{{ asset('css/imagen_principal.webp') }}" alt="Imagen Presentación" class="img-fluid">
+                <img src="{{ asset('img/imagen_principal.webp') }}" alt="Imagen Presentación" class="img-fluid">
             </div>
             <div class="right-content-container">
                 <h1>Descubre tu futuro con MythicTarot</h1>
@@ -30,7 +30,7 @@
                 <a class="btn btn-primary btn-block" href="{{ route('tienda.index') }}">Visitar Tienda</a>
             </div>
             <div class="left-image-container">
-                <img src="{{ asset('css/diseniosCartas.webp') }}" alt="Tienda" class="img-fluid">
+                <img src="{{ asset('img/diseniosCartas.webp') }}" alt="Tienda" class="img-fluid">
             </div>
         </div>
     </div>
