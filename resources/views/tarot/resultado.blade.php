@@ -71,7 +71,7 @@
                 <div class="row">
                     @foreach($cartas as $carta)
                     <div class="col-md-12 mb-3">
-                        <div class="card {{ $carta->pivot->al_reves ? 'al-reves' : '' }}">
+                        <div class="card clickable-card {{ $carta->pivot->al_reves ? 'al-reves' : '' }}" onclick="mostrarCarta('{{ $carta->nombre_carta }}', '{{ $carta->imagen_url }}', '{{ $carta->pivot->al_reves }}', '{{ $carta->pivot->al_reves ? $carta->descripcion_reves : $carta->descripcion_derecho }}')">
                             <img src="{{ asset('cartas/' . $carta->imagen_url) }}" alt="{{ $carta->nombre_carta }}" class="card-img-top">
                         </div>
                     </div>
@@ -109,9 +109,35 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="cartaModal" tabindex="-1" aria-labelledby="cartaModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="cartaModalLabel">Detalle de la Carta</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <h5 id="cartaNombre"></h5>
+                        <img id="cartaImagen" src="" alt="" class="img-fluid mb-3">
+                        <p id="cartaSignificado"></p>
+                        <p id="cartaDescripcion"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
+        function mostrarCarta(nombre, imagenUrl, alReves, descripcion) {
+            document.getElementById('cartaNombre').innerText = nombre;
+            document.getElementById('cartaImagen').src = '{{ asset('cartas') }}/' + imagenUrl;
+            document.getElementById('cartaSignificado').innerText = alReves === '1' ? 'Significado de la carta estando al revés:' : 'Significado de la carta estando al derecho:';
+            document.getElementById('cartaDescripcion').innerText = descripcion;
+            var cartaModal = new bootstrap.Modal(document.getElementById('cartaModal'));
+            cartaModal.show();
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('editComentarioForm').style.display = 'none';
         });

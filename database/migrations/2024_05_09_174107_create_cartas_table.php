@@ -11,7 +11,8 @@ class CreateCartasTable extends Migration
         Schema::create('cartas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_carta', 100);
-            $table->text('descripcion')->nullable();
+            $table->string('descripcion_derecho', 255)->nullable();
+            $table->string('descripcion_reves', 255)->nullable();
             $table->string('imagen_url', 255)->nullable();
             $table->foreignId('disenio_id')->constrained('disenios');
             $table->boolean('al_reves')->default(false);

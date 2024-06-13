@@ -221,3 +221,7 @@ select {
 .invalid-feedback {
     color: #ff6b6b;
 }
+
+.clickable-card {
+    cursor: pointer;
+}

@@ -9,7 +9,7 @@ class Carta extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre_carta', 'descripcion', 'imagen_url', 'disenio_id', 'al_reves', 'user_id'];
+    protected $fillable = ['nombre_carta', 'descripcion_derecho', 'descripcion_reves', 'imagen_url', 'disenio_id', 'al_reves', 'user_id'];
 
     public function disenio()
     {
@@ -19,7 +19,7 @@ class Carta extends Model
     public function users()
     {
         return $this->belongsToMany(User::class, 'carta_user_disenio')
-                    ->withPivot('disenio_id', 'imagen_url')
-                    ->withTimestamps();
+            ->withPivot('disenio_id', 'imagen_url')
+            ->withTimestamps();
     }
 }
