@@ -49,7 +49,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary mt-2">Guardar Comentario</button>
                 </form>
-            @endif            
+                @endif            
 
                 <form method="POST" action="{{ route('lectura.update', $lectura->id) }}" id="editComentarioForm" style="display: none;">
                     @csrf
@@ -85,9 +85,22 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="tiradasModalLabel">{{ $tipoTiradaDesc['title'] }}</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body text-center">
+                        <img src="
+                        @switch($tipoTirada)
+                            @case('simple')
+                                {{ asset('cartas/simple.png') }}
+                                @break
+                            @case('cruz')
+                                {{ asset('cartas/cruz.png') }}
+                                @break
+                            @case('pentaculo')
+                                {{ asset('cartas/pentagrama.png') }}
+                                @break
+                        @endswitch
+                        " alt="Tipo de Tirada" class="img-fluid mb-3">
                         {!! $tipoTiradaDesc['description'] !!}
                     </div>
                     <div class="modal-footer">

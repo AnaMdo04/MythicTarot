@@ -53,7 +53,7 @@ class TarotController extends Controller
         $cartas = $lectura->cartas()->get();
         $tipoTiradaDesc = $this->getTipoTiradaDescription($tipoTirada);
 
-        return view('tarot.resultado', compact('lectura', 'cartas', 'pregunta', 'tipoTiradaDesc'));
+        return view('tarot.resultado', compact('lectura', 'cartas', 'pregunta', 'tipoTirada', 'tipoTiradaDesc'));
     }
 
     private function getNumeroCartasPorTirada($tipoTirada)
@@ -112,9 +112,10 @@ class TarotController extends Controller
         $lectura = Lectura::with('cartas', 'comentarios.user')->findOrFail($id);
         $cartas = $lectura->cartas;
         $pregunta = $lectura->pregunta;
+        $tipoTirada = $lectura->tipo_tirada;
         $tipoTiradaDesc = $this->getTipoTiradaDescription($lectura->tipo_tirada);
 
-        return view('tarot.resultado', compact('lectura', 'cartas', 'pregunta', 'tipoTiradaDesc'));
+        return view('tarot.resultado', compact('lectura', 'cartas', 'pregunta', 'tipoTirada', 'tipoTiradaDesc'));
     }
 
     public function updateComentario(Request $request, $comentario_id)

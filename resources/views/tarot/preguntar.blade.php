@@ -48,14 +48,24 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="tiradasModalLabel">Tipos de Tiradas</h5>
-            </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
                 <div class="modal-body">
-                    <h5>Tirada Simple (3 cartas)</h5>
-                    <p>Primera carta: pasado<br>Segunda carta: presente<br>Tercera carta: futuro</p>
-                    <h5>Tirada Cruz (5 cartas)</h5>
-                    <p>Primera carta: situación actual<br>Segunda carta: desafíos<br>Tercera carta: pasado<br>Cuarta carta: futuro<br>Quinta carta: potencial</p>
-                    <h5>Tirada del Pentáculo (6 cartas)</h5>
-                    <p>Primera carta: causa<br>Segunda carta: efecto<br>Tercera carta: consecuencia<br>Cuarta carta: solución<br>Quinta carta: obstáculo<br>Sexta carta: resultado</p>
+                    <div class="text-center mb-4">
+                     <h5>Tirada Simple (3 cartas)</h5>
+                        <p>Primera carta: pasado<br>Segunda carta: presente<br>Tercera carta: futuro</p>
+                        <img src="{{ asset('cartas/simple.png') }}" alt="Tirada Simple" class="img-fluid mb-3">
+                    </div>
+                    <div class="text-center mb-4">
+                      <h5>Tirada Cruz (5 cartas)</h5>
+                        <p>Primera carta: situación actual<br>Segunda carta: desafíos<br>Tercera carta: pasado<br>Cuarta carta: futuro<br>Quinta carta: potencial</p>
+                        <img src="{{ asset('cartas/cruz.png') }}" alt="Tirada Cruz" class="img-fluid mb-3">
+                    </div>
+                    <div class="text-center mb-4">
+                      <h5>Tirada del Pentáculo (6 cartas)</h5>
+                        <p>Primera carta: causa<br>Segunda carta: efecto<br>Tercera carta: consecuencia<br>Cuarta carta: solución<br>Quinta carta: obstáculo<br>Sexta carta: resultado</p>
+                        <img src="{{ asset('cartas/pentagrama.png') }}" alt="Tirada del Pentáculo" class="img-fluid mb-3">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
