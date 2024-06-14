@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
@@ -52,7 +53,7 @@ class CartaSeeder extends Seeder
             ['nombre_carta' => 'Ocho de Copas', 'descripcion' => 'Descripción de Ocho de Copas'],
             ['nombre_carta' => 'Nueve de Copas', 'descripcion' => 'Descripción de Nueve de Copas'],
             ['nombre_carta' => 'Diez de Copas', 'descripcion' => 'Descripción de Diez de Copas'],
-            ['nombre_carta' => 'Sota de Copas', 'descripcion' => 'Descripción de Sota de Copas'],
+            ['nombre_carta' => 'Paje de Copas', 'descripcion' => 'Descripción de Paje de Copas'],
             ['nombre_carta' => 'Caballero de Copas', 'descripcion' => 'Descripción de Caballero de Copas'],
             ['nombre_carta' => 'Reina de Copas', 'descripcion' => 'Descripción de Reina de Copas'],
             ['nombre_carta' => 'Rey de Copas', 'descripcion' => 'Descripción de Rey de Copas'],
@@ -67,7 +68,7 @@ class CartaSeeder extends Seeder
             ['nombre_carta' => 'Ocho de Oros', 'descripcion' => 'Descripción de Ocho de Oros'],
             ['nombre_carta' => 'Nueve de Oros', 'descripcion' => 'Descripción de Nueve de Oros'],
             ['nombre_carta' => 'Diez de Oros', 'descripcion' => 'Descripción de Diez de Oros'],
-            ['nombre_carta' => 'Sota de Oros', 'descripcion' => 'Descripción de Sota de Oros'],
+            ['nombre_carta' => 'Paje de Oros', 'descripcion' => 'Descripción de Paje de Oros'],
             ['nombre_carta' => 'Caballero de Oros', 'descripcion' => 'Descripción de Caballero de Oros'],
             ['nombre_carta' => 'Reina de Oros', 'descripcion' => 'Descripción de Reina de Oros'],
             ['nombre_carta' => 'Rey de Oros', 'descripcion' => 'Descripción de Rey de Oros'],
@@ -82,7 +83,7 @@ class CartaSeeder extends Seeder
             ['nombre_carta' => 'Ocho de Espadas', 'descripcion' => 'Descripción de Ocho de Espadas'],
             ['nombre_carta' => 'Nueve de Espadas', 'descripcion' => 'Descripción de Nueve de Espadas'],
             ['nombre_carta' => 'Diez de Espadas', 'descripcion' => 'Descripción de Diez de Espadas'],
-            ['nombre_carta' => 'Sota de Espadas', 'descripcion' => 'Descripción de Sota de Espadas'],
+            ['nombre_carta' => 'Paje de Espadas', 'descripcion' => 'Descripción de Paje de Espadas'],
             ['nombre_carta' => 'Caballero de Espadas', 'descripcion' => 'Descripción de Caballero de Espadas'],
             ['nombre_carta' => 'Reina de Espadas', 'descripcion' => 'Descripción de Reina de Espadas'],
             ['nombre_carta' => 'Rey de Espadas', 'descripcion' => 'Descripción de Rey de Espadas'],
@@ -97,7 +98,7 @@ class CartaSeeder extends Seeder
             ['nombre_carta' => 'Ocho de Bastos', 'descripcion' => 'Descripción de Ocho de Bastos'],
             ['nombre_carta' => 'Nueve de Bastos', 'descripcion' => 'Descripción de Nueve de Bastos'],
             ['nombre_carta' => 'Diez de Bastos', 'descripcion' => 'Descripción de Diez de Bastos'],
-            ['nombre_carta' => 'Sota de Bastos', 'descripcion' => 'Descripción de Sota de Bastos'],
+            ['nombre_carta' => 'Paje de Bastos', 'descripcion' => 'Descripción de Paje de Bastos'],
             ['nombre_carta' => 'Caballero de Bastos', 'descripcion' => 'Descripción de Caballero de Bastos'],
             ['nombre_carta' => 'Reina de Bastos', 'descripcion' => 'Descripción de Reina de Bastos'],
             ['nombre_carta' => 'Rey de Bastos', 'descripcion' => 'Descripción de Rey de Bastos'],
