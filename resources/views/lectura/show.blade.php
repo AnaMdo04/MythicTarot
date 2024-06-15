@@ -10,23 +10,15 @@
                 <div class="card-header">Detalle de la Lectura</div>
 
                 <div class="card-body">
-
-                    <h5 class="card-title">Fecha y Hora de la Lectura: {{ $lectura->fecha_lectura }}</h5>
-                    <p><strong>Pregunta:</strong> {{ $lectura->pregunta }}</p>
+                    <h5 class="card-title">Fecha y Hora: </h5><p>{{ $lectura->fecha_lectura }}</p>
+                    <h5 class="card-title">Pregunta:</h5><p>{{ $lectura->pregunta }}</p>
                     
-                    <h5 class="mt-4">Cartas Seleccionadas:</h5>
+                    <h5 class="mt-4">Cartas:</h5>
                     <div class="row">
                         @foreach ($lectura->cartas as $carta)
                             <div class="col-md-4">
-                                <div class="card mb-3 {{ $carta->pivot->al_reves ? 'al-reves' : '' }}">
-                                    <img src="{{ asset('storage/' . $carta->imagen_url) }}" class="card-img-top" alt="{{ $carta->nombre_carta }}">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $carta->nombre_carta }}</h5>
-                                        <p class="card-text">{{ $carta->descripcion }}</p>
-                                        @if($carta->pivot->al_reves)
-                                            <p class="text-danger">Esta carta está al revés</p>
-                                        @endif
-                                    </div>
+                                <div class="mb-3 {{ $carta->pivot->al_reves ? 'al-reves' : '' }}">
+                                    <img src="{{ asset('cartas/' . $carta->imagen_url) }}" alt="{{ $carta->nombre_carta }}" class="card-img-top">
                                 </div>
                             </div>
                         @endforeach

@@ -121,7 +121,9 @@ input[type="file"]:focus {
     border-radius: 5px;
     padding: 10px;
 }
-
+.al-reves {
+    transform: rotate(180deg);
+}
 .custom-file-label {
     color: #fff;
     background-color: #648e9b;
