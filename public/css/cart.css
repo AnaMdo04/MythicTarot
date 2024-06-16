@@ -87,7 +87,7 @@
 }
 .boton_Anadir {
     background-color: #377081;
-    color: white;
+    color: white !important;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -97,5 +97,9 @@
 }
 
 .boton_Anadir:hover {
+    color: white !important;
+}
+
+.boton_Anadir:active {
     color: white !important;
 }
