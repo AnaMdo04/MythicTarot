@@ -9,6 +9,7 @@ use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -199,7 +200,9 @@ class LoginRegisterController extends Controller
             $passwordChanged = true;
         }
 
-        $user->update($updateFields);
+        if (!empty($updateFields)) {
+            DB::table('users')->where('id', $user->id)->update($updateFields);
+        }
 
         if ($passwordChanged) {
             Mail::send('emails.password_changed', ['name' => $user->name], function ($message) use ($user) {
@@ -219,7 +222,7 @@ class LoginRegisterController extends Controller
             Log::info('Eliminando imagen de perfil anterior: ' . $user->profile_image);
             Storage::delete('public/' . $user->profile_image);
             $user->profile_image = null;
-            $user->User::save();
+            DB::table('users')->where('id', $user->id)->update(['profile_image' => null]);
         }
 
         return redirect()->route('perfil.edit')->with('success', 'Foto de perfil eliminada correctamente.');
