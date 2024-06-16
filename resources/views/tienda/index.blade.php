@@ -22,7 +22,14 @@
         @foreach($disenios as $disenio)
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
-                    <img class="card-img-top" src="{{ asset('storage/' . $disenio->imagen_url) }}" alt="{{ $disenio->nombre_disenio }}">
+                    @if ($disenio->imagenes->isNotEmpty())
+                        @php
+                            $imagen = $disenio->imagenes->random();
+                        @endphp
+                        <img class="card-img-top" src="{{ asset('storage/' . $imagen->imagen_url) }}" alt="{{ $disenio->nombre_disenio }}">
+                    @else
+                        <img class="card-img-top" src="{{ asset('storage/default.jpg') }}" alt="{{ $disenio->nombre_disenio }}">
+                    @endif
                     <div class="card-body">
                         <h4 class="card-title">{{ $disenio->nombre_disenio }}</h4>
                         <h5>${{ number_format($disenio->precio, 2) }}</h5>

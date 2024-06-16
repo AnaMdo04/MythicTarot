@@ -11,6 +11,11 @@ class Disenio extends Model
 
     protected $fillable = ['nombre_disenio', 'descripcion', 'precio', 'imagen_url', 'artista_id'];
 
+    public function imagenes()
+    {
+        return $this->hasMany(DisenioImagen::class);
+    }
+
     public function cartas()
     {
         return $this->hasMany(Carta::class);
