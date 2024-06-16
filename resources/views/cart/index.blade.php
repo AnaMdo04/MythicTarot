@@ -24,7 +24,7 @@
                         </form>
                         <form action="{{ route('cart.add', $item->disenio_id) }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-sm">Añadir uno</button>
+                            <button type="submit" class="btn btn-sm boton_Anadir">Añadir uno</button>
                         </form>
                     </div>
                 </li>
