@@ -4,6 +4,9 @@
 
 @section('content')
 <link href="{{ asset('css/tienda.css') }}" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <div class="container">
     <div class="row">
@@ -17,7 +20,7 @@
                 <div class="carousel-inner">
                     @foreach($disenio->imagenes as $index => $imagen)
                         <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                            <img class="d-block w-100" src="{{ asset('storage/' . $imagen->imagen_url) }}" alt="{{ $disenio->nombre_disenio }}">
+                            <img class="d-block w-100" src="{{ asset('tiendaImagen/' . $imagen->imagen_url) }}" alt="{{ $disenio->nombre_disenio }}">
                         </div>
                     @endforeach
                 </div>
