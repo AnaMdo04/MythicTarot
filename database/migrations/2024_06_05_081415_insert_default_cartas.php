@@ -32,7 +32,7 @@ class InsertDefaultCartas extends Migration
                 'artista_id' => $artista->id,
             ], [
                 'precio' => 10.00,
-                'imagen_url' => 'diseñoTarot.png',
+                'imagen_urls' => 'disenioTarot.png',
             ]);
 
             $cartas = [

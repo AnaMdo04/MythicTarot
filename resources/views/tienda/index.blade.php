@@ -28,7 +28,7 @@
                         @endphp
                         <img class="card-img-top" src="{{ asset('tiendaImagen/' . $imagen->imagen_url) }}" alt="{{ $disenio->nombre_disenio }}">
                     @else
-                        <img class="card-img-top" src="{{ asset('tiendaImagen/default.jpg') }}" alt="{{ $disenio->nombre_disenio }}">
+                        <img class="card-img-top" src="{{ asset('tiendaImagen/disenioTarot.png') }}" alt="{{ $disenio->nombre_disenio }}">
                     @endif
                     <div class="card-body">
                         <h4 class="card-title">{{ $disenio->nombre_disenio }}</h4>
