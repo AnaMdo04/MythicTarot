@@ -95,3 +95,7 @@
     --bs-btn-hover-bg: #254d59;
     --bs-btn-active-bg: #254d59;
 }
+
+.boton_Anadir:hover {
+    color: white !important;
+}
