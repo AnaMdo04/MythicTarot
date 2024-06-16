@@ -12,33 +12,29 @@ class InsertDefaultCartas extends Migration
     public function up()
     {
         DB::transaction(function () {
-            // Crear un usuario administrador predeterminado si no existe
             $adminUser = User::firstOrCreate([
                 'email' => 'admin@mythictarot.com',
             ], [
                 'name' => 'Admin User',
-                'password' => bcrypt('adminpassword'), // Cambia esto por una contraseña segura
+                'password' => bcrypt('adminpassword'),
                 'is_artist' => true,
             ]);
 
-            // Crear un artista predeterminado si no existe
             $artista = Artista::firstOrCreate([
                 'nombre_artista' => 'Artista Predeterminado',
-                'user_id' => $adminUser->id, // Asignar el ID del usuario administrador
             ], [
                 'biografia' => 'Biografía del Artista Predeterminado',
             ]);
 
-            // Crear un diseño predeterminado si no existe
             $disenio = Disenio::firstOrCreate([
-                'nombre_disenio' => 'Diseño Predeterminado',
+                'nombre_disenio' => 'Diseño de Nuestro Tarot',
+                'descripcion' => 'Un diseño elegante y moderno para todas las ocasiones.',
                 'artista_id' => $artista->id,
             ], [
-                'precio' => 0,
-                'imagen_url' => 'default.jpg',
+                'precio' => 10.00,
+                'imagen_url' => 'diseñoTarot.png',
             ]);
 
-            // Definir las cartas predeterminadas
             $cartas = [
                 ['nombre_carta' => 'El Loco', 'descripcion_derecho' => 'Nuevos comienzos, espontaneidad, libertad.', 'descripcion_reves' => 'Imprudencia, toma de riesgos sin pensar, caos.', 'imagen_url' => 'el_loco.png'],
                 ['nombre_carta' => 'El Mago', 'descripcion_derecho' => 'Manifestación, poder, creatividad.', 'descripcion_reves' => 'Manipulación, engaño, falta de energía.', 'imagen_url' => 'el_mago.png'],
@@ -136,6 +132,5 @@ class InsertDefaultCartas extends Migration
 
     public function down()
     {
-        // No need to delete the cartas in the down method
     }
 }

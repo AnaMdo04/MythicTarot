@@ -10,11 +10,11 @@ class CompraSeeder extends Seeder
 {
     public function run()
     {
-        foreach(range(1, 20) as $index) {
+        foreach (range(1, 20) as $index) {
             Compra::create([
                 'fecha_compra' => now(),
-                'total' => fake()->randomFloat(2, 10, 500),  // Rango entre 10 y 500
-                'user_id' => User::inRandomOrder()->first()->id  // Usuario aleatorio
+                'total' => fake()->randomFloat(2, 10, 500),
+                'user_id' => User::inRandomOrder()->first()->id
             ]);
         }
     }

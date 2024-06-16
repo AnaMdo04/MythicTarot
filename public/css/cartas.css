@@ -156,3 +156,34 @@ button:not(:disabled) {
     --bs-btn-active-bg: #2c5561;
     --bs-btn-active-border-color: #2c5561;
 }
+
+.small-image-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+}
+
+.small-image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.bg-white {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: whitesmoke;
+    border: 1px solid #254d59 !important;
+    background-color: #377081 !important;
+}
+
+.bg-white:hover {
+    color: whitesmoke !important;
+    background-color: #254d59 !important;
+}

@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/tarot/resultado/{id}', [TarotController::class, 'resultado'])->name('tarot.resultado');
     Route::get('/tarot/cartas', [TarotController::class, 'cartas'])->name('tarot.cartas');
 
+    Route::post('/compra/entregar/{id}', [CompraController::class, 'entregar'])->name('compra.entregar');
     Route::get('/perfil', [ProfileController::class, 'index'])->name('perfil');
     Route::get('/perfil/editar', [ProfileController::class, 'edit'])->name('perfil.edit');
     Route::put('/perfil', [LoginRegisterController::class, 'updateProfile'])->name('perfil.update');
@@ -56,19 +57,19 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/carta/{id}', [CartaController::class, 'update'])->name('carta.update');
     Route::delete('/carta/{id}', [CartaController::class, 'destroy'])->name('carta.destroy');
 
-    Route::post('/cart/add/{id}', [TiendaController::class, 'addToCart'])->name('cart.add');
+    Route::post('/cart/add/{id}', [CartController::class, 'addItem'])->name('cart.add');
+    Route::delete('/cart/remove/{id}', [CartController::class, 'removeItem'])->name('cart.remove');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+
+    Route::get('/checkout', [CompraController::class, 'checkout'])->name('checkout');
+    Route::post('/process-payment', [CompraController::class, 'processPayment'])->name('processPayment');
+    Route::get('/payment-callback', [CompraController::class, 'paymentCallback'])->name('payment.callback');
+    Route::get('/mis-disenios', [UserController::class, 'misDisenios'])->name('mis-disenios');
+    Route::post('/comentario/store/{id}', [CompraController::class, 'storeComentario'])->name('comentario.store');
 });
 
 Route::get('/tienda', [TiendaController::class, 'index'])->name('tienda.index');
 Route::get('/tienda/{id}', [TiendaController::class, 'show'])->name('tienda.show');
-
-Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-Route::delete('/cart/remove/{id}', [CartController::class, 'removeItem'])->name('cart.remove');
-
-Route::get('/checkout', [CompraController::class, 'checkout'])->name('checkout');
-Route::post('/process-payment', [CompraController::class, 'processPayment'])->name('processPayment');
-Route::get('/payment-callback', [CompraController::class, 'paymentCallback'])->name('payment.callback');
-Route::get('/mis-disenios', [UserController::class, 'misDisenios'])->name('mis-disenios');
 
 Route::get('/payment-success', function () {
     return view('success');

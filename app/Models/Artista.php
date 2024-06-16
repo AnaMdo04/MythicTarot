@@ -7,12 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Artista extends Model
 {
     protected $table = 'artistas';
-    protected $fillable = ['nombre_artista', 'biografia', 'user_id'];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $fillable = ['nombre_artista', 'biografia'];
 
     public function disenios()
     {

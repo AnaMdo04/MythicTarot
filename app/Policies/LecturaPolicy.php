@@ -1,7 +1,5 @@
 <?php
 
-// app/Policies/LecturaPolicy.php
-
 namespace App\Policies;
 
 use App\Models\Lectura;

@@ -12,7 +12,6 @@ return new class extends Migration
             $table->id();
             $table->string('nombre_artista', 100);
             $table->text('biografia')->nullable();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

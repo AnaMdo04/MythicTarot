@@ -31,10 +31,18 @@ class User extends Authenticatable
     public function cartas()
     {
         return $this->belongsToMany(Carta::class, 'carta_user_disenio')
-                    ->withPivot('disenio_id', 'imagen_url')
-                    ->withTimestamps();
+            ->withPivot('disenio_id', 'imagen_url')
+            ->withTimestamps();
+    }
+    public function comentarios()
+    {
+        return $this->hasMany(CompraComentario::class);
     }
 
+    public function compras()
+    {
+        return $this->hasMany(Compra::class);
+    }
     public function artistas()
     {
         return $this->hasMany(Artista::class);

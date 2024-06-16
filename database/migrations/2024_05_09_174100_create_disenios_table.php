@@ -11,6 +11,7 @@ class CreateDiseniosTable extends Migration
         Schema::create('disenios', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_disenio', 100);
+            $table->text('descripcion')->nullable();
             $table->decimal('precio', 10, 2)->nullable();
             $table->string('imagen_url', 255)->nullable();
             $table->foreignId('artista_id')->constrained('artistas');

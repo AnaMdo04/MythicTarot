@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Artista;
-use App\Models\User; // Asegúrate de tener este modelo si usas User::inRandomOrder()->first()
+use App\Models\User;
 
 class ArtistaSeeder extends Seeder
 {

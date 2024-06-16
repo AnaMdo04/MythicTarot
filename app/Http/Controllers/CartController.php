@@ -24,10 +24,10 @@ class CartController extends Controller
 
         $item = $cart->items()->where('disenio_id', $id)->first();
         if ($item) {
-            return redirect()->route('cart.index')->with('error', 'Este diseño ya está en tu carrito.');
+            $item->increment('cantidad');
+        } else {
+            $cart->items()->create(['disenio_id' => $id, 'cantidad' => 1]);
         }
-
-        $cart->items()->create(['disenio_id' => $id, 'cantidad' => 1]);
 
         return redirect()->route('cart.index')->with('success', 'Artículo añadido al carrito.');
     }
@@ -35,7 +35,11 @@ class CartController extends Controller
     public function removeItem($id)
     {
         $item = CartItem::findOrFail($id);
-        $item->delete();
-        return redirect()->route('cart.index')->with('success', 'Artículo eliminado del carrito.');
+        if ($item->cantidad > 1) {
+            $item->decrement('cantidad');
+        } else {
+            $item->delete();
+        }
+        return redirect()->route('cart.index')->with('success', 'Cantidad del artículo actualizada.');
     }
 }

@@ -6,6 +6,29 @@
     background-color: #f0dcd3;
     border-color: #b5998b;
     box-shadow: 0 2px 4px #8e7c74;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-group-item div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.btn-sm {
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px #8e7c74;
+    font-size: 1rem;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px #8e7c74;
+    font-size: 1rem;
 }
 
 .btn-danger {
@@ -24,6 +47,20 @@
     --bs-btn-active-border-color: #371207;
 }
 
+.btn-sm {
+    background-color: #377081;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px #8e7c74;
+    --bs-btn-hover-bg: #254d59;
+    --bs-btn-active-bg: #254d59;
+}
+
+.d-flex .me-2 {
+    margin-right: 0.5rem;
+}
 
 .btn-primary {
     background-color: #377081;

@@ -9,10 +9,15 @@ class Disenio extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre_disenio', 'precio', 'imagen_url', 'artista_id'];
+    protected $fillable = ['nombre_disenio', 'descripcion', 'precio', 'imagen_url', 'artista_id'];
 
     public function cartas()
     {
         return $this->hasMany(Carta::class);
+    }
+
+    public function comentarios()
+    {
+        return $this->hasMany(CompraComentario::class);
     }
 }

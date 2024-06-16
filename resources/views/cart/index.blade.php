@@ -12,13 +12,21 @@
         <ul class="list-group">
             @foreach ($cart->items as $item)
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    {{ $item->disenio->nombre_disenio }} (x{{ $item->cantidad }})
-                    <span>${{ number_format($item->disenio->precio * $item->cantidad, 2) }}</span>
-                    <form action="{{ route('cart.remove', $item->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                    </form>
+                    <div>
+                        {{ $item->disenio->nombre_disenio }} (x{{ $item->cantidad }})
+                        <span>${{ number_format($item->disenio->precio * $item->cantidad, 2) }}</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <form action="{{ route('cart.remove', $item->id) }}" method="POST" class="me-2">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Eliminar uno</button>
+                        </form>
+                        <form action="{{ route('cart.add', $item->disenio_id) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-sm">Añadir uno</button>
+                        </form>
+                    </div>
                 </li>
             @endforeach
         </ul>

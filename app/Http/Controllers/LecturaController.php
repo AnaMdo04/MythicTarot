@@ -14,7 +14,6 @@ class LecturaController extends Controller
     {
         $query = Lectura::with(['cartas', 'comentarios'])->where('user_id', Auth::id());
 
-        // Filtrar por pregunta, comentario y nombre de las cartas
         if ($request->has('search') && !empty($request->search)) {
             $search = $request->search;
             $query->where(function ($query) use ($search) {
@@ -69,10 +68,8 @@ class LecturaController extends Controller
         $lectura = Lectura::findOrFail($id);
         $this->authorize('delete', $lectura);
 
-        // Eliminar comentarios asociados
         Comentario::where('lectura_id', $lectura->id)->delete();
 
-        // Eliminar la lectura
         $lectura->delete();
 
         return redirect()->route('lecturas')->with('success', 'Lectura eliminada correctamente.');
