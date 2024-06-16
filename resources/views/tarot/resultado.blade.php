@@ -38,7 +38,7 @@
                             @endif
                         </div>
                     </div>
-                @endforeach
+                @endforeach                
 
                 @if($lectura->comentarios->isEmpty() || $lectura->comentarios->where('user_id', Auth::id())->isEmpty())
                 <form action="{{ route('tarot.guardarComentario', ['lectura_id' => $lectura->id]) }}" method="POST" class="mt-3">

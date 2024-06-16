@@ -104,7 +104,7 @@ class TarotController extends Controller
             'user_id' => $user->id,
         ]);
 
-        return redirect()->route('tarot.resultado', ['id' => $lectura_id])->with('success', 'Comentario guardado correctamente.');
+        return redirect()->route('lectura.show', ['id' => $lectura_id])->with('success', 'Comentario guardado correctamente.');
     }
 
     public function resultado($id)

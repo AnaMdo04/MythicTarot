@@ -14,7 +14,7 @@ class Lectura extends Model
     public function cartas()
     {
         return $this->belongsToMany(Carta::class, 'lectura_has_carta')
-                    ->withPivot('posicion', 'al_reves');
+            ->withPivot('posicion', 'al_reves');
     }
 
     public function comentarios()
