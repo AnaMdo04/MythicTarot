@@ -16,40 +16,45 @@
                             @foreach($compra->disenios as $disenio)
                                 <div class="card mb-3">
                                     <div class="card-body text-center">
-                                        <img src="{{ asset('storage/' . $disenio->imagen_url) }}" alt="{{ $disenio->nombre_disenio }}" width="100">
-                                        <h5 class="card-title">{{ $disenio->nombre_disenio }} (x{{ $disenio->pivot->cantidad }})</h5>
-                                        <p class="card-text">{{ $disenio->descripcion }}</p>
-                                        <p class="card-text">Precio: ${{ number_format($disenio->precio * $disenio->pivot->cantidad, 2) }}</p>
-                                        @php
-                                            $comentario = $disenio->comentarios()->where('user_id', Auth::id())->where('compra_id', $compra->id)->first();
-                                        @endphp
-                                        @if ($comentario)
-                                            <div class="content-block small">
-                                                <div class="small-image-container">
-                                                    <img src="{{ $comentario->user->profile_image ? asset('storage/' . $comentario->user->profile_image) : 'https://use.fontawesome.com/releases/v5.15.4/svgs/solid/user-circle.svg' }}" alt="Usuario {{ $comentario->user->name }}" class="rounded-circle">
-                                                </div>
-                                                <div class="card-content">
-                                                    <h5>{{ $comentario->user->name }}</h5>
-                                                    <p>{{ $comentario->texto }}</p>
-                                                    <p><small>{{ \Carbon\Carbon::parse($comentario->fecha_comentario)->format('d/m/Y') }}</small></p>
-                                                </div>
-                                            </div>
-                                        @else
-                                            @if ($compra->estado_envio == 'Entregado')
-                                                <form action="{{ route('comentario.store', $disenio->id) }}" method="POST">
-                                                    @csrf
-                                                    <input type="hidden" name="compra_id" value="{{ $compra->id }}">
-                                                    <div class="form-group">
-                                                        <label for="comentario">Añadir Comentario</label>
-                                                        <textarea class="form-control" id="comentario" name="comentario" rows="3" required></textarea>
+                                        @if ($disenio->imagenes->isNotEmpty())
+                                            @php
+                                                $imagen = $disenio->imagenes->random();
+                                            @endphp
+                                            <img class="card-img-top" src="{{ asset('tiendaImagen/' . $imagen->imagen_url) }}" alt="{{ $disenio->nombre_disenio }}" width="100">                
+                                            <h5 class="card-title">{{ $disenio->nombre_disenio }} (x{{ $disenio->pivot->cantidad }})</h5>
+                                            <p class="card-text">{{ $disenio->descripcion }}</p>
+                                            <p class="card-text">Precio: ${{ number_format($disenio->precio * $disenio->pivot->cantidad, 2) }}</p>
+                                            @php
+                                                $comentario = $disenio->comentarios()->where('user_id', Auth::id())->where('compra_id', $compra->id)->first();
+                                            @endphp
+                                            @if ($comentario)
+                                                <div class="content-block small">
+                                                    <div class="small-image-container">
+                                                        <img src="{{ $comentario->user->profile_image ? asset('storage/' . $comentario->user->profile_image) : 'https://use.fontawesome.com/releases/v5.15.4/svgs/solid/user-circle.svg' }}" alt="Usuario {{ $comentario->user->name }}" class="rounded-circle">
                                                     </div>
-                                                    <button type="submit" class="btn btn-primary">Guardar Comentario</button>
-                                                </form>
+                                                    <div class="card-content">
+                                                        <h5>{{ $comentario->user->name }}</h5>
+                                                        <p>{{ $comentario->texto }}</p>
+                                                        <p><small>{{ \Carbon\Carbon::parse($comentario->fecha_comentario)->format('d/m/Y') }}</small></p>
+                                                    </div>
+                                                </div>
                                             @else
-                                                <form action="{{ route('compra.entregar', $compra->id) }}" method="POST">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-success">Marcar como Entregado</button>
-                                                </form>
+                                                @if ($compra->estado_envio == 'Entregado')
+                                                    <form action="{{ route('comentario.store', $disenio->id) }}" method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="compra_id" value="{{ $compra->id }}">
+                                                        <div class="form-group">
+                                                            <label for="comentario">Añadir Comentario</label>
+                                                            <textarea class="form-control" id="comentario" name="comentario" rows="3" required></textarea>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Guardar Comentario</button>
+                                                    </form>
+                                                @else
+                                                    <form action="{{ route('compra.entregar', $compra->id) }}" method="POST">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-success">Marcar como Entregado</button>
+                                                    </form>
+                                                @endif
                                             @endif
                                         @endif
                                     </div>
